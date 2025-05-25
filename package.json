@@ -1,7 +1,7 @@
 {
   "name": "pecaditos",
   "version": "0.1.0",
-  "homepage": "https://samyuh.github.io/pecaditos",
+  "homepage": "https://pecaditos.pt",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
