@@ -1,0 +1,91 @@
+---
+export interface Props {
+	title?: string;
+}
+
+const { title = "Pecaditos - Doces Tentações" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Pecaditos - Doces Tentações das Terras de Basto" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<title>{title}</title>
+		<style>
+			@import "../styles/global.css";
+		</style>
+	</head>
+	<body>
+		<nav class="navbar">
+			<div class="nav-container">
+				<a href="/" class="nav-logo">
+					<span class="logo-text">Pecaditos</span>
+					<span class="logo-subtitle">Doces Tentações</span>
+				</a>
+				<ul class="nav-menu">
+					<li><a href="/" class="nav-link">Início</a></li>
+					<li><a href="/menu" class="nav-link">Menu</a></li>
+					<li><a href="/events" class="nav-link">Eventos</a></li>
+					<li><a href="/about" class="nav-link">Sobre Nós</a></li>
+					<li><a href="/contact" class="nav-link">Contacto</a></li>
+				</ul>
+				<div class="hamburger">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+		</nav>
+
+		<main>
+			<slot />
+		</main>
+
+		<footer class="footer">
+			<div class="footer-content">
+				<div class="footer-section">
+					<h3>Pecaditos</h3>
+					<p>Doces Tentações das Terras de Basto</p>
+					<p>Espalhando alegria através dos nossos doces únicos e irresistíveis.</p>
+				</div>
+				<div class="footer-section">
+					<h4>Contactos</h4>
+					<p>📧 pecaditos1808@gmail.com</p>
+					<p>📱 927 169 060 / 937 509 957</p>
+					<p>📍 Terras de Basto</p>
+				</div>
+				<div class="footer-section">
+					<h4>Redes Sociais</h4>
+					<p>📸 @pecaditos (em breve)</p>
+					<p>Segue-nos para ficares a par das nossas novidades!</p>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<p>&copy; 2024 Pecaditos. Todos os direitos reservados.</p>
+			</div>
+		</footer>
+
+		<script>
+			// Mobile menu toggle
+			const hamburger = document.querySelector('.hamburger');
+			const navMenu = document.querySelector('.nav-menu');
+
+			hamburger?.addEventListener('click', () => {
+				navMenu?.classList.toggle('active');
+			});
+
+			// Close mobile menu when clicking on a link
+			document.querySelectorAll('.nav-link').forEach(link => {
+				link.addEventListener('click', () => {
+					navMenu?.classList.remove('active');
+				});
+			});
+		</script>
+	</body>
+</html>

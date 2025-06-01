@@ -1,0 +1,593 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout title="Pecaditos - Doces Tentações das Terras de Basto">
+	<!-- Hero Section -->
+	<section class="hero">
+		<div class="hero-content">
+			<div class="hero-text">
+				<span class="hero-title">Pecaditos</span>
+				<span class="hero-subtitle">Doces Tentações das Terras de Basto</span>
+				<p class="hero-description">
+					Bem-vindos ao mundo dos <strong>Pecaditos</strong>! Somos um jovem casal apaixonado por criar doces únicos que despertam sorrisos e momentos de pura indulgência. Cada criação é feita com amor e dedicação para espalhar alegria através dos sabores mais tentadores.
+				</p>
+				<div class="hero-buttons">
+					<a href="/menu" class="btn btn-primary">
+						<span class="btn-icon">🍫</span>
+						Ver Menu
+					</a>
+					<a href="/contact" class="btn btn-secondary">
+						<span class="btn-icon">📞</span>
+						Contactar
+					</a>
+				</div>
+			</div>
+			<div class="hero-image">
+				<div class="chocolate-drip">
+					<div class="floating-emoji">🍰</div>
+					<div class="floating-emoji">🧁</div>
+					<div class="floating-emoji">🍭</div>
+					<div class="floating-emoji">🍪</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- About Preview -->
+	<section class="about-preview">
+		<div class="container">
+			<div class="about-content">
+				<div class="about-text">
+					<h2>Quem Somos</h2>
+					<p>
+						Somos a <strong>Barraquinha dos Pecaditos</strong>, um projeto nascido da paixão de um jovem casal por criar momentos doces e especiais. A nossa missão é simples: provocar sorrisos através de doces únicos e irresistíveis.
+					</p>
+					<p>
+						Cada criação é pensada para despertar os sentidos e criar memórias saborosas. Porque acreditamos que a vida é feita de pequenos prazeres... e os nossos são deliciosamente pecaminosos!
+					</p>
+					<a href="/about" class="btn btn-outline">
+						<span class="btn-icon">❤️</span>
+						Conhece a Nossa História
+					</a>
+				</div>
+				<div class="about-visual">
+					<div class="heart-shape">💕</div>
+					<div class="couple-emoji">👫</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	/* Hero Section */
+	.hero {
+		background: linear-gradient(135deg, var(--cream) 0%, var(--beige-light) 50%, var(--beige-dark) 100%);
+		padding: 3rem 0;
+		min-height: 80vh;
+		display: flex;
+		align-items: center;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.hero::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="rgba(60,36,21,0.1)"/><circle cx="90" cy="30" r="1.5" fill="rgba(60,36,21,0.1)"/><circle cx="30" cy="90" r="1" fill="rgba(60,36,21,0.1)"/></svg>');
+		animation: float 25s ease-in-out infinite;
+	}
+
+	.hero-content {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+		align-items: center;
+		position: relative;
+		z-index: 1;
+	}
+
+	.hero-title {
+		font-family: 'Dancing Script', cursive;
+		font-size: 4rem;
+		font-weight: 700;
+		color: var(--chocolate-dark);
+		display: block;
+		line-height: 1;
+		text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+		margin-bottom: 0.5rem;
+	}
+
+	.hero-subtitle {
+		font-size: 1.2rem;
+		color: var(--chocolate-medium);
+		font-weight: 500;
+		display: block;
+		margin-bottom: 1.5rem;
+		opacity: 0.9;
+	}
+
+	.hero-description {
+		font-size: 1rem;
+		color: var(--text-light);
+		margin-bottom: 2rem;
+		line-height: 1.7;
+	}
+
+	.hero-description strong {
+		color: var(--chocolate-dark);
+		font-weight: 600;
+	}
+
+	.hero-buttons {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.hero-image {
+		position: relative;
+		height: 400px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.chocolate-drip {
+		width: 200px;
+		height: 300px;
+		background: linear-gradient(180deg, var(--chocolate-dark) 0%, var(--chocolate-medium) 100%);
+		border-radius: 100px 100px 50px 50px;
+		position: relative;
+		animation: float 3s ease-in-out infinite;
+		box-shadow: 0 15px 30px rgba(60, 36, 21, 0.3);
+	}
+
+	.chocolate-drip::before {
+		content: '';
+		position: absolute;
+		bottom: -20px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 0;
+		height: 0;
+		border-left: 15px solid transparent;
+		border-right: 15px solid transparent;
+		border-top: 25px solid var(--chocolate-medium);
+	}
+
+	.floating-emoji {
+		position: absolute;
+		font-size: 2rem;
+		animation: bounce 2s ease-in-out infinite;
+		filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+	}
+
+	.floating-emoji:nth-child(1) {
+		top: 15%;
+		left: 15%;
+		animation-delay: 0s;
+	}
+
+	.floating-emoji:nth-child(2) {
+		top: 25%;
+		right: 10%;
+		animation-delay: 0.5s;
+	}
+
+	.floating-emoji:nth-child(3) {
+		bottom: 30%;
+		left: 5%;
+		animation-delay: 1s;
+	}
+
+	.floating-emoji:nth-child(4) {
+		bottom: 15%;
+		right: 20%;
+		animation-delay: 1.5s;
+	}
+
+	/* Featured Products Section */
+	.featured-products {
+		padding: 4rem 0;
+		background: var(--warm-white);
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+
+	.section-title {
+		font-family: 'Dancing Script', cursive;
+		font-size: 3rem;
+		color: var(--chocolate-dark);
+		text-align: center;
+		margin-bottom: 3rem;
+		position: relative;
+	}
+
+	.section-title::after {
+		content: '';
+		position: absolute;
+		bottom: -15px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 80px;
+		height: 4px;
+		background: var(--gold);
+		border-radius: 2px;
+	}
+
+	.products-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+
+	.product-card {
+		background: linear-gradient(135deg, var(--cream), var(--beige-light));
+		padding: 2.5rem 2rem;
+		border-radius: 20px;
+		text-align: center;
+		box-shadow: 0 8px 25px rgba(60, 36, 21, 0.1);
+		transition: all 0.3s ease;
+		border: 2px solid transparent;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.product-card::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 4px;
+		background: linear-gradient(90deg, var(--chocolate-light), var(--chocolate-medium));
+		transform: scaleX(0);
+		transition: transform 0.3s ease;
+	}
+
+	.product-card:hover {
+		transform: translateY(-8px);
+		box-shadow: 0 15px 35px rgba(60, 36, 21, 0.2);
+		border-color: var(--chocolate-light);
+	}
+
+	.product-card:hover::before {
+		transform: scaleX(1);
+	}
+
+	.product-card.featured {
+		border-color: var(--gold);
+		background: linear-gradient(135deg, #fff9e6, var(--beige-light));
+	}
+
+	.product-card.featured::before {
+		background: linear-gradient(90deg, var(--gold), #f4d03f);
+		transform: scaleX(1);
+	}
+
+	.product-badge {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		background: var(--gold);
+		color: var(--chocolate-dark);
+		padding: 0.4rem 0.8rem;
+		border-radius: 15px;
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+	}
+
+	.product-icon {
+		font-size: 3.5rem;
+		margin-bottom: 1.2rem;
+		display: block;
+		animation: bounce 2s ease-in-out infinite;
+	}
+
+	.product-card h3 {
+		font-family: 'Dancing Script', cursive;
+		font-size: 2rem;
+		color: var(--chocolate-dark);
+		margin-bottom: 1rem;
+		line-height: 1.2;
+	}
+
+	.product-card p {
+		color: var(--text-light);
+		line-height: 1.6;
+		font-size: 0.95rem;
+	}
+
+	/* About Preview Section */
+	.about-preview {
+		padding: 4rem 0;
+		background: linear-gradient(135deg, var(--beige-light) 0%, var(--cream) 100%);
+	}
+
+	.about-content {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+		align-items: center;
+	}
+
+	.about-text h2 {
+		font-family: 'Dancing Script', cursive;
+		font-size: 2.5rem;
+		color: var(--chocolate-dark);
+		margin-bottom: 1.5rem;
+		position: relative;
+	}
+
+	.about-text h2::after {
+		content: '';
+		position: absolute;
+		bottom: -10px;
+		left: 0;
+		width: 60px;
+		height: 3px;
+		background: var(--gold);
+		border-radius: 2px;
+	}
+
+	.about-text p {
+		color: var(--text-light);
+		line-height: 1.7;
+		margin-bottom: 1.2rem;
+		font-size: 1rem;
+	}
+
+	.about-text strong {
+		color: var(--chocolate-dark);
+		font-weight: 600;
+	}
+
+	.about-visual {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		height: 250px;
+	}
+
+	.heart-shape {
+		position: absolute;
+		font-size: 6rem;
+		color: var(--gold);
+		opacity: 0.3;
+		animation: pulse 3s ease-in-out infinite;
+	}
+
+	.couple-emoji {
+		font-size: 3.5rem;
+		position: relative;
+		z-index: 2;
+		animation: bounce 2s ease-in-out infinite;
+	}
+
+	/* Button Styles */
+	.btn {
+		padding: 1rem 2rem;
+		border-radius: 50px;
+		text-decoration: none;
+		font-weight: 600;
+		transition: all 0.3s ease;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		border: 2px solid transparent;
+		font-size: 0.95rem;
+	}
+
+	.btn-primary {
+		background: linear-gradient(45deg, var(--chocolate-medium), var(--chocolate-dark));
+		color: var(--warm-white);
+		box-shadow: 0 4px 15px rgba(60, 36, 21, 0.3);
+	}
+
+	.btn-primary:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 6px 20px rgba(60, 36, 21, 0.4);
+		background: linear-gradient(45deg, var(--chocolate-dark), var(--chocolate-medium));
+	}
+
+	.btn-secondary {
+		background: transparent;
+		color: var(--chocolate-dark);
+		border-color: var(--chocolate-medium);
+	}
+
+	.btn-secondary:hover {
+		background: var(--chocolate-medium);
+		color: var(--warm-white);
+		transform: translateY(-3px);
+	}
+
+	.btn-outline {
+		background: transparent;
+		color: var(--chocolate-dark);
+		border-color: var(--chocolate-light);
+	}
+
+	.btn-outline:hover {
+		background: var(--chocolate-light);
+		color: var(--warm-white);
+		transform: translateY(-3px);
+	}
+
+	.btn-icon {
+		font-size: 1rem;
+	}
+
+	/* Animations */
+	@keyframes float {
+		0%, 100% { transform: translateY(0px); }
+		50% { transform: translateY(-15px); }
+	}
+
+	@keyframes bounce {
+		0%, 100% { transform: translateY(0px); }
+		50% { transform: translateY(-8px); }
+	}
+
+	@keyframes pulse {
+		0%, 100% { transform: scale(1); }
+		50% { transform: scale(1.05); }
+	}
+
+	/* Mobile-First Responsive Design */
+	@media (max-width: 768px) {
+		.hero {
+			min-height: 70vh;
+			padding: 2rem 0;
+		}
+
+		.hero-content {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+			text-align: center;
+		}
+
+		.hero-title {
+			font-size: 3rem;
+		}
+
+		.hero-subtitle {
+			font-size: 1.1rem;
+		}
+
+		.hero-description {
+			font-size: 0.95rem;
+		}
+
+		.hero-image {
+			height: 300px;
+		}
+
+		.chocolate-drip {
+			width: 160px;
+			height: 240px;
+		}
+
+		.floating-emoji {
+			font-size: 1.5rem;
+		}
+
+		.featured-products {
+			padding: 3rem 0;
+		}
+
+		.section-title {
+			font-size: 2.5rem;
+		}
+
+		.products-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.product-card {
+			padding: 2rem 1.5rem;
+		}
+
+		.product-card h3 {
+			font-size: 1.8rem;
+		}
+
+		.about-preview {
+			padding: 3rem 0;
+		}
+
+		.about-content {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+			text-align: center;
+		}
+
+		.about-text h2 {
+			font-size: 2.2rem;
+		}
+
+		.about-visual {
+			height: 200px;
+		}
+
+		.heart-shape {
+			font-size: 5rem;
+		}
+
+		.couple-emoji {
+			font-size: 3rem;
+		}
+
+		.hero-buttons {
+			justify-content: center;
+		}
+
+		.btn {
+			width: 100%;
+			max-width: 250px;
+			justify-content: center;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.container {
+			padding: 0 15px;
+		}
+
+		.hero-title {
+			font-size: 2.5rem;
+		}
+
+		.hero-subtitle {
+			font-size: 1rem;
+		}
+
+		.hero-description {
+			font-size: 0.9rem;
+		}
+
+		.section-title {
+			font-size: 2.2rem;
+		}
+
+		.about-text h2 {
+			font-size: 2rem;
+		}
+
+		.product-card {
+			padding: 1.8rem 1.2rem;
+		}
+
+		.product-icon {
+			font-size: 3rem;
+		}
+
+		.product-card h3 {
+			font-size: 1.6rem;
+		}
+
+		.btn {
+			padding: 0.9rem 1.5rem;
+			font-size: 0.9rem;
+		}
+	}
+</style>
