@@ -23,6 +23,7 @@
 
 html {
 	scroll-behavior: smooth;
+	overflow-x: hidden;
 }
 
 body {
@@ -31,6 +32,7 @@ body {
 	color: var(--text-dark);
 	line-height: 1.6;
 	min-height: 100vh;
+	overflow-x: hidden;
 }
 
 /* Navigation */
@@ -1290,11 +1292,13 @@ main {
 		top: 80px;
 		flex-direction: column;
 		background: var(--chocolate-dark);
-		width: 100%;
+		width: 100vw;
+		max-width: 100%;
 		text-align: center;
 		transition: 0.3s;
 		padding: 2rem 0;
 		gap: 1rem;
+		box-sizing: border-box;
 	}
 
 	.nav-menu.active {
@@ -1307,11 +1311,13 @@ main {
 
 	.nav-container {
 		padding: 0 15px;
+		max-width: 100%;
 	}
 
 	.footer-content {
 		grid-template-columns: 1fr;
 		text-align: center;
+		padding: 0 15px;
 	}
 
 	.page-title {
@@ -1322,6 +1328,7 @@ main {
 		grid-template-columns: 1fr;
 		text-align: center;
 		gap: 2rem;
+		padding: 0 15px;
 	}
 
 	.hero-title {
@@ -1340,21 +1347,25 @@ main {
 		grid-template-columns: 1fr;
 		text-align: center;
 		gap: 2rem;
+		padding: 0 15px;
 	}
 
 	.products-grid,
 	.menu-grid {
 		grid-template-columns: 1fr;
+		padding: 0 15px;
 	}
 
 	.menu-item {
 		padding: 2rem;
+		margin: 0 15px;
 	}
 
 	.values-grid,
 	.events-grid,
 	.contact-grid {
 		grid-template-columns: 1fr;
+		padding: 0 15px;
 	}
 
 	.form-row {
@@ -1363,11 +1374,13 @@ main {
 
 	.contact-form {
 		padding: 2rem;
+		margin: 0 15px;
 	}
 
 	.events-notice {
 		flex-direction: column;
 		text-align: center;
+		margin: 0 15px;
 	}
 
 	.cta-buttons {
@@ -1378,5 +1391,62 @@ main {
 	.btn {
 		width: 100%;
 		max-width: 300px;
+	}
+
+	/* Additional mobile constraints */
+	.container {
+		padding: 0 15px;
+		max-width: 100%;
+	}
+
+	/* Ensure all sections don't overflow */
+	section {
+		overflow-x: hidden;
+	}
+
+	/* Fix any potential text overflow */
+	h1, h2, h3, h4, h5, h6 {
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+
+	/* Ensure images don't overflow */
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+}
+
+/* Additional mobile breakpoint for very small screens */
+@media (max-width: 480px) {
+	.nav-container {
+		padding: 0 10px;
+	}
+
+	.container {
+		padding: 0 10px;
+	}
+
+	.page-title {
+		font-size: 2.5rem;
+	}
+
+	.hero-title {
+		font-size: 2.5rem;
+	}
+
+	.footer-content {
+		padding: 0 10px;
+	}
+
+	.contact-form,
+	.menu-item {
+		margin: 0 10px;
+		padding: 1.5rem;
+	}
+
+	.btn {
+		padding: 12px 20px;
+		font-size: 0.9rem;
 	}
 }

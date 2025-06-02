@@ -164,6 +164,16 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
+	/* Add global box-sizing and overflow prevention */
+	* {
+		box-sizing: border-box;
+	}
+
+	html, body {
+		overflow-x: hidden;
+		max-width: 100vw;
+	}
+
 	/* Contact Hero Section */
 	.contact-hero {
 		background: linear-gradient(135deg, var(--chocolate-dark) 0%, var(--chocolate-medium) 100%);
@@ -172,6 +182,7 @@ import Layout from '../layouts/Layout.astro';
 		text-align: center;
 		position: relative;
 		overflow: hidden;
+		width: 100%;
 	}
 
 	.contact-hero::before {
@@ -193,6 +204,9 @@ import Layout from '../layouts/Layout.astro';
 		text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 		position: relative;
 		z-index: 1;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+		hyphens: auto;
 	}
 
 	.page-subtitle {
@@ -203,18 +217,24 @@ import Layout from '../layouts/Layout.astro';
 		line-height: 1.6;
 		position: relative;
 		z-index: 1;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 
 	.container {
 		max-width: 1200px;
 		margin: 0 auto;
 		padding: 0 20px;
+		width: 100%;
+		box-sizing: border-box;
 	}
 
 	/* Contact Info Section */
 	.contact-info {
 		padding: 4rem 0;
 		background: var(--warm-white);
+		width: 100%;
+		overflow: hidden;
 	}
 
 	.contact-intro {
@@ -228,6 +248,8 @@ import Layout from '../layouts/Layout.astro';
 		color: var(--chocolate-dark);
 		margin-bottom: 1.5rem;
 		position: relative;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 
 	.contact-intro h2::after {
@@ -248,6 +270,8 @@ import Layout from '../layouts/Layout.astro';
 		line-height: 1.7;
 		max-width: 700px;
 		margin: 0 auto;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 
 	.contact-list {
@@ -256,6 +280,7 @@ import Layout from '../layouts/Layout.astro';
 		gap: 1.5rem;
 		max-width: 800px;
 		margin: 0 auto;
+		width: 100%;
 	}
 
 	.contact-item {
@@ -268,10 +293,11 @@ import Layout from '../layouts/Layout.astro';
 		border-left: 4px solid var(--chocolate-light);
 		transition: all 0.3s ease;
 		box-shadow: 0 4px 15px rgba(60, 36, 21, 0.08);
+		width: 100%;
+		box-sizing: border-box;
 	}
 
 	.contact-item:hover {
-		transform: translateX(5px);
 		box-shadow: 0 6px 20px rgba(60, 36, 21, 0.12);
 		border-left-color: var(--gold);
 	}
@@ -284,6 +310,7 @@ import Layout from '../layouts/Layout.astro';
 
 	.contact-details {
 		flex: 1;
+		min-width: 0;
 	}
 
 	.contact-details h3 {
@@ -291,6 +318,8 @@ import Layout from '../layouts/Layout.astro';
 		font-size: 1.5rem;
 		color: var(--chocolate-dark);
 		margin-bottom: 0.5rem;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 
 	.contact-details p {
@@ -298,6 +327,8 @@ import Layout from '../layouts/Layout.astro';
 		margin-bottom: 0.8rem;
 		font-size: 0.95rem;
 		line-height: 1.5;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 
 	.contact-link {
@@ -309,11 +340,11 @@ import Layout from '../layouts/Layout.astro';
 		display: inline-block;
 		margin-bottom: 0.3rem;
 		padding: 0.3rem 0;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 
 	.contact-link:hover {
-		color: var(--chocolate-dark);
-		transform: translateY(-1px);
 	}
 
 	.contact-link.coming-soon {
@@ -331,11 +362,15 @@ import Layout from '../layouts/Layout.astro';
 	.contact-form-section {
 		padding: 4rem 0;
 		background: linear-gradient(135deg, var(--beige-light), var(--beige-dark));
+		width: 100%;
+		overflow: hidden;
 	}
 
 	.form-content {
 		max-width: 700px;
 		margin: 0 auto;
+		width: 100%;
+		box-sizing: border-box;
 	}
 
 	.form-intro {
@@ -349,6 +384,8 @@ import Layout from '../layouts/Layout.astro';
 		color: var(--chocolate-dark);
 		margin-bottom: 1.5rem;
 		position: relative;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 
 	.form-intro h2::after {
@@ -367,6 +404,8 @@ import Layout from '../layouts/Layout.astro';
 		font-size: 1rem;
 		color: var(--text-light);
 		line-height: 1.7;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 
 	.contact-form {
@@ -376,6 +415,9 @@ import Layout from '../layouts/Layout.astro';
 		box-shadow: 0 10px 30px rgba(60, 36, 21, 0.1);
 		border: 2px solid transparent;
 		transition: all 0.3s ease;
+		width: 100%;
+		box-sizing: border-box;
+		margin: 0;
 	}
 
 	.contact-form:hover {
@@ -388,11 +430,13 @@ import Layout from '../layouts/Layout.astro';
 		grid-template-columns: 1fr 1fr;
 		gap: 1.2rem;
 		margin-bottom: 1.2rem;
+		width: 100%;
 	}
 
 	.form-group {
 		display: flex;
 		flex-direction: column;
+		min-width: 0;
 	}
 
 	.form-group label {
@@ -400,6 +444,8 @@ import Layout from '../layouts/Layout.astro';
 		color: var(--chocolate-dark);
 		margin-bottom: 0.5rem;
 		font-size: 0.95rem;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 
 	.form-group input,
@@ -412,6 +458,9 @@ import Layout from '../layouts/Layout.astro';
 		font-family: 'Poppins', sans-serif;
 		transition: all 0.3s ease;
 		background: var(--cream);
+		width: 100%;
+		box-sizing: border-box;
+		min-width: 0;
 	}
 
 	.form-group input:focus,
@@ -421,7 +470,6 @@ import Layout from '../layouts/Layout.astro';
 		border-color: var(--chocolate-medium);
 		box-shadow: 0 0 0 3px rgba(93, 64, 55, 0.1);
 		background: var(--warm-white);
-		transform: translateY(-2px);
 	}
 
 	.form-group textarea {
@@ -433,6 +481,8 @@ import Layout from '../layouts/Layout.astro';
 	.contact-extra {
 		padding: 4rem 0;
 		background: var(--warm-white);
+		width: 100%;
+		overflow: hidden;
 	}
 
 	.extra-content {
@@ -440,6 +490,7 @@ import Layout from '../layouts/Layout.astro';
 		grid-template-columns: 2fr 1fr;
 		gap: 3rem;
 		align-items: center;
+		width: 100%;
 	}
 
 	.extra-text h2 {
@@ -448,6 +499,8 @@ import Layout from '../layouts/Layout.astro';
 		color: var(--chocolate-dark);
 		margin-bottom: 1.5rem;
 		position: relative;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 
 	.extra-text h2::after {
@@ -466,6 +519,8 @@ import Layout from '../layouts/Layout.astro';
 		line-height: 1.7;
 		margin-bottom: 1.2rem;
 		font-size: 1rem;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 
 	.extra-text strong {
@@ -478,6 +533,7 @@ import Layout from '../layouts/Layout.astro';
 		flex-direction: column;
 		gap: 0.8rem;
 		margin-top: 1.5rem;
+		width: 100%;
 	}
 
 	.time-item {
@@ -488,21 +544,25 @@ import Layout from '../layouts/Layout.astro';
 		background: linear-gradient(135deg, var(--cream), var(--beige-light));
 		border-radius: 12px;
 		transition: all 0.3s ease;
+		width: 100%;
+		box-sizing: border-box;
 	}
 
 	.time-item:hover {
 		background: linear-gradient(135deg, var(--beige-light), var(--cream));
-		transform: translateX(8px);
 	}
 
 	.time-icon {
 		font-size: 1.3rem;
+		flex-shrink: 0;
 	}
 
 	.time-item span:last-child {
 		font-weight: 600;
 		color: var(--chocolate-dark);
 		font-size: 0.95rem;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 
 	.extra-visual {
@@ -510,6 +570,7 @@ import Layout from '../layouts/Layout.astro';
 		justify-content: center;
 		align-items: center;
 		position: relative;
+		width: 100%;
 	}
 
 	.support-illustration {
@@ -519,6 +580,7 @@ import Layout from '../layouts/Layout.astro';
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		max-width: 100%;
 	}
 
 	.support-icon {
@@ -570,6 +632,7 @@ import Layout from '../layouts/Layout.astro';
 		cursor: pointer;
 		font-size: 1rem;
 		font-family: 'Poppins', sans-serif;
+		box-sizing: border-box;
 	}
 
 	.btn-primary {
@@ -583,7 +646,6 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.btn-primary:hover {
-		transform: translateY(-3px);
 		box-shadow: 0 6px 20px rgba(60, 36, 21, 0.4);
 		background: linear-gradient(45deg, var(--chocolate-dark), var(--chocolate-medium));
 	}
@@ -611,58 +673,73 @@ import Layout from '../layouts/Layout.astro';
 	/* Mobile-First Responsive Design */
 	@media (max-width: 768px) {
 		.contact-hero {
-			padding: 3rem 0 2rem;
+			padding: 3rem 0;
+			overflow-x: hidden;
 		}
 
 		.page-title {
-			font-size: 2.5rem;
+			font-size: 3rem;
+			word-wrap: break-word;
+			overflow-wrap: break-word;
+			hyphens: auto;
 		}
 
 		.page-subtitle {
-			font-size: 1rem;
+			font-size: 1.1rem;
+			word-wrap: break-word;
+			overflow-wrap: break-word;
 		}
 
-		.contact-info {
+		.container {
+			padding: 0 15px;
+			max-width: 100%;
+			width: 100%;
+		}
+
+		.contact-info, .contact-form-section, .contact-extra {
 			padding: 3rem 0;
+			overflow-x: hidden;
 		}
 
-		.contact-intro h2 {
-			font-size: 2rem;
+		.contact-intro h2,
+		.form-intro h2,
+		.extra-text h2 {
+			font-size: 2.2rem;
+			word-wrap: break-word;
+			overflow-wrap: break-word;
 		}
 
-		.contact-intro p {
-			font-size: 0.95rem;
+		.contact-list {
+			width: 100%;
+			margin: 0;
+			padding: 0;
 		}
 
 		.contact-item {
-			flex-direction: column;
-			text-align: center;
-			gap: 1rem;
-			padding: 1.5rem 1rem;
-		}
-
-		.contact-item:hover {
-			transform: translateY(-5px);
+			padding: 2rem 1.5rem;
+			margin: 0;
+			width: 100%;
 		}
 
 		.contact-icon {
-			font-size: 2rem;
+			font-size: 3rem;
 		}
 
-		.contact-details h3 {
-			font-size: 1.3rem;
+		.contact-item h3 {
+			font-size: 1.6rem;
+			word-wrap: break-word;
+			overflow-wrap: break-word;
 		}
 
-		.contact-form-section {
-			padding: 3rem 0;
-		}
-
-		.form-intro h2 {
-			font-size: 2rem;
+		.form-content {
+			padding: 0;
+			width: 100%;
 		}
 
 		.contact-form {
-			padding: 2rem 1.5rem;
+			padding: 2rem;
+			margin: 0;
+			width: 100%;
 		}
 
 		.form-row {
@@ -670,53 +747,42 @@ import Layout from '../layouts/Layout.astro';
 			gap: 1rem;
 		}
 
-		.contact-extra {
-			padding: 3rem 0;
-		}
-
 		.extra-content {
 			grid-template-columns: 1fr;
 			gap: 2rem;
 			text-align: center;
+			width: 100%;
 		}
 
-		.extra-text h2 {
-			font-size: 2rem;
-		}
-
-		.extra-text p {
-			font-size: 0.95rem;
-		}
-
-		.response-time {
-			align-items: center;
-		}
-
-		.time-item {
-			justify-content: center;
-		}
-
-		.time-item:hover {
-			transform: translateY(-3px);
+		.extra-text h2::after {
+			left: 50%;
+			transform: translateX(-50%);
 		}
 
 		.support-illustration {
-			width: 150px;
-			height: 150px;
+			width: 180px;
+			height: 180px;
+			max-width: 100%;
 		}
 
 		.support-icon {
-			font-size: 3rem;
+			font-size: 3.5rem;
 		}
 
 		.floating-hearts span {
-			font-size: 1.2rem;
+			font-size: 1.5rem;
+		}
+
+		.btn {
+			width: 100%;
+			max-width: 300px;
 		}
 	}
 
 	@media (max-width: 480px) {
 		.container {
-			padding: 0 15px;
+			padding: 0 10px;
+			width: 100%;
 		}
 
 		.page-title {
@@ -733,8 +799,13 @@ import Layout from '../layouts/Layout.astro';
 			padding: 1.2rem 0.8rem;
 		}
 
+		.form-content {
+			padding: 0;
+		}
+
 		.contact-form {
 			padding: 1.5rem 1rem;
+			margin: 0;
 		}
 
 		.form-group input,
@@ -744,9 +815,55 @@ import Layout from '../layouts/Layout.astro';
 			font-size: 0.9rem;
 		}
 
+		.support-illustration {
+			width: 150px;
+			height: 150px;
+		}
+
+		.support-icon {
+			font-size: 3rem;
+		}
+
+		.floating-hearts span {
+			font-size: 1.2rem;
+		}
+
 		.btn {
 			padding: 0.9rem 1.5rem;
 			font-size: 0.95rem;
+		}
+
+		.contact-info, .contact-form-section, .contact-extra {
+			padding: 2.5rem 0;
+		}
+	}
+
+	/* Extra small screens */
+	@media (max-width: 360px) {
+		.container {
+			padding: 0 5px;
+			width: 100%;
+		}
+
+		.contact-item {
+			padding: 1rem 0.6rem;
+		}
+
+		.form-content {
+			padding: 0;
+		}
+
+		.contact-form {
+			padding: 1.2rem 0.8rem;
+			margin: 0;
+		}
+
+		.contact-item h3 {
+			font-size: 1.4rem;
+		}
+
+		.contact-item p {
+			font-size: 0.9rem;
 		}
 	}
 </style>

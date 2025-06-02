@@ -115,6 +115,16 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
+	/* Add global box-sizing and overflow prevention */
+	* {
+		box-sizing: border-box;
+	}
+
+	html, body {
+		overflow-x: hidden;
+		max-width: 100vw;
+	}
+
 	/* Events Hero */
 	.events-hero {
 		background: linear-gradient(135deg, var(--cream) 0%, var(--beige-light) 50%, var(--beige-dark) 100%);
@@ -122,6 +132,7 @@ import Layout from '../layouts/Layout.astro';
 		text-align: center;
 		position: relative;
 		overflow: hidden;
+		width: 100%;
 	}
 
 	.events-hero::before {
@@ -139,6 +150,8 @@ import Layout from '../layouts/Layout.astro';
 		max-width: 1200px;
 		margin: 0 auto;
 		padding: 0 20px;
+		width: 100%;
+		box-sizing: border-box;
 	}
 
 	.hero-title {
@@ -149,6 +162,9 @@ import Layout from '../layouts/Layout.astro';
 		text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 		position: relative;
 		z-index: 1;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+		hyphens: auto;
 	}
 
 	.hero-subtitle {
@@ -160,12 +176,16 @@ import Layout from '../layouts/Layout.astro';
 		line-height: 1.6;
 		position: relative;
 		z-index: 1;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 
 	/* Events Info */
 	.events-info {
 		padding: 5rem 0;
 		background: var(--warm-white);
+		width: 100%;
+		overflow: hidden;
 	}
 
 	.info-content {
@@ -173,6 +193,7 @@ import Layout from '../layouts/Layout.astro';
 		grid-template-columns: 2fr 1fr;
 		gap: 4rem;
 		align-items: center;
+		width: 100%;
 	}
 
 	.info-text h2 {
@@ -181,6 +202,8 @@ import Layout from '../layouts/Layout.astro';
 		color: var(--chocolate-dark);
 		margin-bottom: 2rem;
 		position: relative;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 
 	.info-text h2::after {
@@ -199,6 +222,8 @@ import Layout from '../layouts/Layout.astro';
 		color: var(--text-light);
 		line-height: 1.8;
 		margin-bottom: 1.5rem;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 
 	.info-text strong {
@@ -211,12 +236,13 @@ import Layout from '../layouts/Layout.astro';
 		justify-content: center;
 		align-items: center;
 		position: relative;
-		height: 250px;
+		height: 300px;
+		width: 100%;
 	}
 
 	.calendar-icon {
 		font-size: 6rem;
-		animation: pulse 3s ease-in-out infinite;
+		animation: bounce 3s ease-in-out infinite;
 		filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
 	}
 
@@ -236,34 +262,38 @@ import Layout from '../layouts/Layout.astro';
 	.floating-icons span:nth-child(1) {
 		top: 20%;
 		left: 20%;
-		animation-delay: -0.5s;
+		animation-delay: 0s;
 	}
 
 	.floating-icons span:nth-child(2) {
 		top: 60%;
 		right: 20%;
-		animation-delay: -1s;
+		animation-delay: 1s;
 	}
 
 	.floating-icons span:nth-child(3) {
 		bottom: 20%;
 		left: 50%;
-		animation-delay: -1.5s;
+		animation-delay: 2s;
 	}
 
 	/* Upcoming Events */
 	.upcoming-events {
 		padding: 5rem 0;
-		background: linear-gradient(135deg, var(--beige-light), var(--beige-dark));
+		background: linear-gradient(135deg, var(--beige-light) 0%, var(--cream) 100%);
+		width: 100%;
+		overflow: hidden;
 	}
 
 	.section-title {
 		font-family: 'Dancing Script', cursive;
-		font-size: 3rem;
-		text-align: center;
+		font-size: 3.5rem;
 		color: var(--chocolate-dark);
+		text-align: center;
 		margin-bottom: 3rem;
 		position: relative;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 
 	.section-title::after {
@@ -280,14 +310,15 @@ import Layout from '../layouts/Layout.astro';
 
 	.events-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-		gap: 2.5rem;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
 		margin-bottom: 3rem;
+		width: 100%;
 	}
 
 	.event-card {
 		background: linear-gradient(135deg, var(--cream), var(--beige-light));
-		padding: 2.5rem;
+		padding: 2.5rem 2rem;
 		border-radius: 20px;
 		text-align: center;
 		box-shadow: 0 10px 30px rgba(60, 36, 21, 0.1);
@@ -295,6 +326,8 @@ import Layout from '../layouts/Layout.astro';
 		border: 2px solid transparent;
 		position: relative;
 		overflow: hidden;
+		width: 100%;
+		box-sizing: border-box;
 	}
 
 	.event-card::before {
@@ -304,14 +337,14 @@ import Layout from '../layouts/Layout.astro';
 		left: 0;
 		right: 0;
 		height: 4px;
-		background: linear-gradient(90deg, var(--chocolate-light), var(--chocolate-medium));
+		background: linear-gradient(90deg, var(--chocolate-light), var(--gold));
 		transform: scaleX(0);
 		transition: transform 0.3s ease;
 	}
 
 	.event-card:hover {
-		transform: translateY(-10px);
-		box-shadow: 0 20px 40px rgba(60, 36, 21, 0.2);
+		/* Removed translateY to prevent overflow */
+		box-shadow: 0 20px 40px rgba(60, 36, 21, 0.15);
 		border-color: var(--chocolate-light);
 	}
 
@@ -320,26 +353,44 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.event-card.coming-soon {
-		opacity: 0.8;
-		background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
+		opacity: 0.9;
+		background: linear-gradient(135deg, #f8f8f8, #e8e8e8);
 	}
 
-	.event-card.coming-soon::before {
-		background: linear-gradient(90deg, #bbb, #999);
+	.event-status {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		background: var(--gold);
+		color: var(--chocolate-dark);
+		padding: 0.4rem 0.8rem;
+		border-radius: 15px;
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+	}
+
+	.event-card.coming-soon .event-status {
+		background: #999;
+		color: white;
 	}
 
 	.event-icon {
-		font-size: 3.5rem;
+		font-size: 4rem;
 		margin-bottom: 1.5rem;
+		display: block;
 		animation: bounce 2s ease-in-out infinite;
 	}
 
 	.event-card h3 {
 		font-family: 'Dancing Script', cursive;
-		font-size: 2rem;
+		font-size: 2.2rem;
 		color: var(--chocolate-dark);
 		margin-bottom: 1rem;
 		line-height: 1.2;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 
 	.event-card.coming-soon h3 {
@@ -348,48 +399,40 @@ import Layout from '../layouts/Layout.astro';
 
 	.event-date {
 		font-weight: 600;
-		color: var(--chocolate-medium);
+		color: var(--gold);
 		margin-bottom: 1rem;
 		font-size: 1rem;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
 	}
 
 	.event-card.coming-soon .event-date {
-		color: #888;
+		color: #999;
 	}
 
 	.event-card p {
 		color: var(--text-light);
 		line-height: 1.6;
-		margin-bottom: 1rem;
 		font-size: 0.95rem;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 
 	.event-card.coming-soon p {
 		color: #888;
 	}
 
-	.event-status {
-		position: absolute;
-		top: 20px;
-		right: 20px;
-		background: var(--chocolate-light);
-		color: var(--warm-white);
-		padding: 0.5rem 1rem;
-		border-radius: 20px;
-		font-size: 0.8rem;
-		font-weight: 600;
-		text-transform: uppercase;
-		letter-spacing: 0.5px;
-	}
-
 	.events-notice {
-		background: linear-gradient(135deg, #fff9e6, var(--beige-light));
-		padding: 2rem;
-		border-radius: 15px;
-		border: 2px solid var(--gold);
 		display: flex;
 		align-items: center;
 		gap: 1rem;
+		background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+		padding: 2rem;
+		border-radius: 15px;
+		border-left: 5px solid var(--gold);
+		margin-top: 2rem;
+		width: 100%;
+		box-sizing: border-box;
 	}
 
 	.notice-icon {
@@ -402,6 +445,8 @@ import Layout from '../layouts/Layout.astro';
 		color: var(--text-dark);
 		line-height: 1.6;
 		font-size: 1rem;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 
 	.events-notice strong {
@@ -412,6 +457,8 @@ import Layout from '../layouts/Layout.astro';
 	.private-events {
 		padding: 5rem 0;
 		background: var(--warm-white);
+		width: 100%;
+		overflow: hidden;
 	}
 
 	.private-content {
@@ -419,6 +466,7 @@ import Layout from '../layouts/Layout.astro';
 		grid-template-columns: 1fr 2fr;
 		gap: 4rem;
 		align-items: center;
+		width: 100%;
 	}
 
 	.private-visual {
@@ -427,6 +475,7 @@ import Layout from '../layouts/Layout.astro';
 		align-items: center;
 		position: relative;
 		height: 250px;
+		width: 100%;
 	}
 
 	.party-icon {
@@ -472,6 +521,8 @@ import Layout from '../layouts/Layout.astro';
 		color: var(--chocolate-dark);
 		margin-bottom: 2rem;
 		position: relative;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 
 	.private-text h2::after {
@@ -490,6 +541,8 @@ import Layout from '../layouts/Layout.astro';
 		color: var(--text-light);
 		line-height: 1.8;
 		margin-bottom: 2rem;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 
 	.private-text strong {
@@ -501,6 +554,7 @@ import Layout from '../layouts/Layout.astro';
 		list-style: none;
 		padding: 0;
 		margin: 2rem 0;
+		width: 100%;
 	}
 
 	.services-list li {
@@ -510,11 +564,13 @@ import Layout from '../layouts/Layout.astro';
 		line-height: 1.6;
 		border-bottom: 1px solid rgba(60, 36, 21, 0.1);
 		transition: all 0.3s ease;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 
 	.services-list li:hover {
 		color: var(--chocolate-dark);
-		transform: translateX(10px);
+		/* Removed translateX to prevent overflow */
 	}
 
 	.services-list li:last-child {
@@ -533,6 +589,7 @@ import Layout from '../layouts/Layout.astro';
 		gap: 0.5rem;
 		border: 2px solid transparent;
 		font-size: 0.95rem;
+		box-sizing: border-box;
 	}
 
 	.btn-primary {
@@ -542,7 +599,7 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.btn-primary:hover {
-		transform: translateY(-3px);
+		/* Removed translateY to prevent overflow */
 		box-shadow: 0 6px 20px rgba(60, 36, 21, 0.4);
 		background: linear-gradient(45deg, var(--chocolate-dark), var(--chocolate-medium));
 	}
@@ -571,28 +628,44 @@ import Layout from '../layouts/Layout.astro';
 	@media (max-width: 768px) {
 		.events-hero {
 			padding: 3rem 0;
+			overflow-x: hidden;
 		}
 
 		.hero-title {
 			font-size: 3rem;
+			word-wrap: break-word;
+			overflow-wrap: break-word;
+			hyphens: auto;
 		}
 
 		.hero-subtitle {
 			font-size: 1.1rem;
+			word-wrap: break-word;
+			overflow-wrap: break-word;
+		}
+
+		.container {
+			padding: 0 15px;
+			max-width: 100%;
+			width: 100%;
 		}
 
 		.events-info, .upcoming-events, .private-events {
 			padding: 3rem 0;
+			overflow-x: hidden;
 		}
 
 		.info-content, .private-content {
 			grid-template-columns: 1fr;
-			text-align: center;
 			gap: 2.5rem;
+			text-align: center;
+			width: 100%;
 		}
 
 		.info-text h2, .private-text h2 {
 			font-size: 2.5rem;
+			word-wrap: break-word;
+			overflow-wrap: break-word;
 		}
 
 		.info-text h2::after, .private-text h2::after {
@@ -602,29 +675,40 @@ import Layout from '../layouts/Layout.astro';
 
 		.section-title {
 			font-size: 2.5rem;
+			word-wrap: break-word;
+			overflow-wrap: break-word;
 		}
 
 		.events-grid {
 			grid-template-columns: 1fr;
 			gap: 2rem;
+			width: 100%;
 		}
 
 		.event-card {
 			padding: 2rem 1.5rem;
+			margin: 0;
+		}
+
+		.event-icon {
+			font-size: 3.2rem;
 		}
 
 		.event-card h3 {
 			font-size: 1.8rem;
+			word-wrap: break-word;
+			overflow-wrap: break-word;
 		}
 
 		.events-notice {
 			flex-direction: column;
 			text-align: center;
-			gap: 1rem;
+			padding: 2rem;
+			margin: 0;
 		}
 
 		.info-visual, .private-visual {
-			height: 200px;
+			height: 300px;
 		}
 
 		.calendar-icon, .party-icon {
@@ -635,16 +719,21 @@ import Layout from '../layouts/Layout.astro';
 			font-size: 2rem;
 		}
 
+		.cta-buttons {
+			flex-direction: column;
+			align-items: center;
+		}
+
 		.btn {
 			width: 100%;
-			max-width: 250px;
-			justify-content: center;
+			max-width: 300px;
 		}
 	}
 
 	@media (max-width: 480px) {
 		.container {
-			padding: 0 15px;
+			padding: 0 10px;
+			width: 100%;
 		}
 
 		.hero-title {
@@ -677,6 +766,7 @@ import Layout from '../layouts/Layout.astro';
 
 		.events-notice {
 			padding: 1.5rem;
+			margin: 0;
 		}
 
 		.info-text p, .private-text p {
@@ -694,6 +784,55 @@ import Layout from '../layouts/Layout.astro';
 		.btn {
 			padding: 0.9rem 1.5rem;
 			font-size: 0.9rem;
+		}
+
+		.events-info, .upcoming-events, .private-events {
+			padding: 2.5rem 0;
+		}
+	}
+
+	/* Extra small screens */
+	@media (max-width: 360px) {
+		.container {
+			padding: 0 5px;
+			width: 100%;
+		}
+
+		.hero-title {
+			font-size: 2.2rem;
+		}
+
+		.info-text h2, .private-text h2 {
+			font-size: 2rem;
+		}
+
+		.section-title {
+			font-size: 2rem;
+		}
+
+		.event-card {
+			padding: 1.5rem 1rem;
+		}
+
+		.event-card h3 {
+			font-size: 1.5rem;
+		}
+
+		.event-card p {
+			font-size: 0.9rem;
+		}
+
+		.events-notice {
+			padding: 1.2rem;
+			margin: 0;
+		}
+
+		.calendar-icon, .party-icon {
+			font-size: 4rem;
+		}
+
+		.floating-icons span, .celebration-icons span {
+			font-size: 1.5rem;
 		}
 	}
 </style>
