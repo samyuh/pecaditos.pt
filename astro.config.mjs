@@ -5,8 +5,11 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://pecaditos.pt',
   vite: {
-    plugins: [tailwindcss()]
-  }
+    server: {
+      watch: {
+        usePolling: true,
+      },
+    },
+  },
 });

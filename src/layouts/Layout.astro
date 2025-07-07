@@ -15,18 +15,19 @@ const { title = "Pecaditos - Doces Tentações" } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Rum+Raisin&family=Truculenta:opsz,wght@12..72,100..900&display=swap" rel="stylesheet">
 		<title>{title}</title>
 		<style>
 			@import "../styles/global.css";
+			@import "../styles/layouts/navbar.css";
+			@import "../styles/layouts/footer.css";
 		</style>
 	</head>
 	<body>
 		<nav class="navbar">
 			<div class="nav-container">
 				<a href="/" class="nav-logo">
-					<span class="logo-text">Pecaditos</span>
-					<span class="logo-subtitle">Doces Tentações</span>
+					<img src="/logo_principal.png" alt="Pecaditos Logo" class="logo-img" style="height: 120px; vertical-align: middle;" />
 				</a>
 				<ul class="nav-menu">
 					<li><a href="/" class="nav-link">Início</a></li>
@@ -43,7 +44,7 @@ const { title = "Pecaditos - Doces Tentações" } = Astro.props;
 			</div>
 		</nav>
 
-		<main>
+		<main class="body-content">
 			<slot />
 		</main>
 

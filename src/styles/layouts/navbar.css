@@ -1,0 +1,86 @@
+/* Navigation */
+.navbar {
+    background: var(--color-cream);
+    color: var(--color-dark-red);
+    font-size: 1.5rem; /* Bigger letters */
+    padding: 1.2rem 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.nav-logo {
+    text-decoration: none;
+    color: var(--color-off-white);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--color-dark-red); /* Use dark red for nav links */
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--color-light-red); /* Accent on hover */
+    transform: translateY(-2px);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-light-red); /* Accent underline */
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--color-off-white);
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+.navbar a,
+.navbar-brand {
+    color: var(--color-dark-red);
+    font-weight: 700;
+    font-size: 1.25em;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.navbar a:hover,
+.navbar a:focus {
+    color: var(--color-accent, #d7263d);
+}
