@@ -1,15 +1,11 @@
 /* Footer */
 .footer {
-    background: linear-gradient(135deg, var(--color-dark-red) 80%, var(--color-light-red) 100%);
+    background: var(--color-dark-red);
     color: var(--color-off-white);
     padding: 4rem 0 2rem;
     margin-top: 4rem;
-    /* Removed texture image */
-    background-image: linear-gradient(135deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.18) 100%);
-    background-repeat: no-repeat;
-    background-size: cover;
     box-shadow: 0 -4px 24px 0 rgba(0,0,0,0.08);
-    border-radius: 32px 32px 0 0;
+    border-radius: 0; /* Remove rounded corners for square look */
     font-size: 1.25rem; /* Bigger letters */
 }
 
@@ -20,6 +16,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 3rem;
+    justify-content: flex-end; /* Align content to the right */
+    text-align: right; /* Text right-aligned */
 }
 
 .footer-section {
@@ -68,7 +66,7 @@
     border-top: 1px solid var(--color-light-red);
     margin-top: 3rem;
     padding-top: 1.5rem;
-    text-align: center;
+    text-align: right; /* Copyright right-aligned */
     opacity: 0.88;
     max-width: 1300px;
     margin-left: auto;

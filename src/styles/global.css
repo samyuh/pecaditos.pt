@@ -7,6 +7,18 @@
     --color-light-red: #8A0829;    /* For accents */
     --color-off-white: #F5F5F5;    /* Main background */
     --color-white: #FFFFFF;
+    /* Unified palette variables for the rest of the stylesheets */
+    --cream: var(--color-cream);
+    --beige-light: #FFF5DE;
+    --beige-dark: #EED0A4;
+    --warm-white: #FFFCF8;
+
+    --chocolate-dark: #3C2415;
+    --chocolate-medium: #56331D;
+    --chocolate-light: #7B5231;
+
+    --gold: #D4AF37;
+    --text-light: #5E4B44;
 }
 
 /* Base styles */
@@ -556,4 +568,26 @@ main {
         padding: 12px 20px;
         font-size: 0.9rem;
     }
+}
+
+/* ---------- Icon sizing overrides ---------- */
+.product-icon,
+.floating-emoji {
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+}
+
+.menu-icon {
+    width: 56px;
+    height: 56px;
+    display: inline-block;
+}
+
+.product-icon img,
+.menu-icon img,
+.floating-emoji img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }

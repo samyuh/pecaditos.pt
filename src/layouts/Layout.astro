@@ -15,12 +15,20 @@ const { title = "Pecaditos - Doces Tentações" } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Rum+Raisin&family=Truculenta:opsz,wght@12..72,100..900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Rum+Raisin&family=Truculenta:wght@100;400;700&display=swap" rel="stylesheet">
 		<title>{title}</title>
 		<style>
 			@import "../styles/global.css";
 			@import "../styles/layouts/navbar.css";
 			@import "../styles/layouts/footer.css";
+			.nav-link:hover {
+				color: #8B4513;
+				transition: color 0.3s ease;
+			}
+
+			.footer-section h3, .footer-section h4 {
+				font-family: 'Truculenta', sans-serif;
+			}
 		</style>
 	</head>
 	<body>

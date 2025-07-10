@@ -29,7 +29,7 @@
 }
 
 .nav-link {
-    color: var(--color-dark-red); /* Use dark red for nav links */
+    color: var(--color-light-red); /* Inverted: light text on red bg */
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
@@ -37,7 +37,7 @@
 }
 
 .nav-link:hover {
-    color: var(--color-light-red); /* Accent on hover */
+    color: var(--color-dark-red); /* Darker on hover */
     transform: translateY(-2px);
 }
 
@@ -48,7 +48,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--color-light-red); /* Accent underline */
+    background: var(--color-dark-red); /* Underline matches text */
     transition: width 0.3s ease;
 }
 
@@ -65,14 +65,14 @@
 .hamburger span {
     width: 25px;
     height: 3px;
-    background: var(--color-off-white);
+    background: var(--color-light-red);
     margin: 3px 0;
     transition: 0.3s;
 }
 
 .navbar a,
 .navbar-brand {
-    color: var(--color-dark-red);
+    color: var(--color-light-red);
     font-weight: 700;
     font-size: 1.25em;
     letter-spacing: 1px;
@@ -82,5 +82,5 @@
 
 .navbar a:hover,
 .navbar a:focus {
-    color: var(--color-accent, #d7263d);
+    color: var(--color-dark-red);
 }

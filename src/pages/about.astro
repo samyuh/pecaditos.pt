@@ -1,16 +1,65 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import '../styles/about.css';
+import '../styles/events.css';
 ---
 
+<style>
+  .hero-title {
+    font-family: 'Truculenta', sans-serif;
+    font-size: 4.5rem;
+    color: #8B4513;
+    animation: fadeIn 2s ease-in-out;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+    color: #A0522D;
+    animation: fadeIn 2.5s ease-in-out;
+  }
+
+  .story-text p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #5A3E36;
+    transition: color 0.3s ease;
+  }
+
+  .story-text p:hover {
+    color: #8B4513;
+  }
+
+  .mission-icon {
+    font-size: 3rem;
+    animation: bounce 3s infinite;
+  }
+
+  .value-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .value-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
+  }
+</style>
+
 <Layout title="Sobre Nós - Pecaditos">
-	<!-- About Hero -->
-	<section class="about-hero">
+	<!-- Events Hero -->
+	<section class="events-hero">
 		<div class="container">
-			<div class="hero-content">
-				<h1 class="hero-title">A Nossa História</h1>
-				<p class="hero-subtitle">Conhece a paixão por trás dos Pecaditos</p>
-			</div>
+			<h1 class="hero-title">A Nossa História</h1>
+			<p class="hero-subtitle">Conhece a paixão por trás dos Pecaditos</p>
 		</div>
 	</section>
 
@@ -19,15 +68,18 @@ import '../styles/about.css';
 		<div class="container">
 			<div class="story-content">
 				<div class="story-text">
-					<h2>Como Tudo Começou</h2>
+					<h2>Como tudo começou</h2>
 					<p>
-						A <strong>Barraquinha dos Pecaditos</strong> nasceu do sonho de um jovem casal apaixonado por criar momentos doces e especiais. Começámos esta aventura com uma simples missão: provocar sorrisos através de doces únicos e irresistíveis.
+						Somos um casal jovem, guloso e destemido, e juntos criámos os Pecaditos — um espaço onde o prazer não é apenas permitido… é altamente recomendado!
 					</p>
 					<p>
-						Cada receita é desenvolvida com carinho, testada com amor e aperfeiçoada até atingir a perfeição. Acreditamos que os melhores doces são aqueles feitos com ingredientes de qualidade e uma pitada generosa de paixão.
+						Percorremos as feiras temáticas e festivas das Terras de Basto, levando connosco um menu de tentações onde cada trinca é um pecado, cada lambidela uma promessa e cada sobremesa uma desculpa deliciosa para se render à gula e ao prazer.
 					</p>
 					<p>
-						O que começou como uma pequena ideia entre dois corações apaixonados, transformou-se numa marca que espalha alegria pelas <strong>Terras de Basto</strong> e muito além.
+						Entre frutas deliciosas, crepes recheados com malícia, chocolates escorridos sem pudor e outras surpresas, queremos oferecer mais do que comida — queremos dar momentos de prazer, riso e puro deleite.
+					</p>
+					<p>
+						Os Pecaditos não são apenas uma barraquinha, são um convite descarado a saborear o que a vida tem de mais doce, quente e provocante.
 					</p>
 				</div>
 				<div class="story-visual">
@@ -54,12 +106,12 @@ import '../styles/about.css';
 					</div>
 				</div>
 				<div class="mission-text">
-					<h2>A Nossa Missão</h2>
+					<h2>A nossa missão</h2>
 					<p>
-						A nossa missão é simples mas poderosa: <strong>criar momentos de pura felicidade através dos nossos doces</strong>. Queremos que cada mordida seja uma experiência única, que desperte sorrisos e crie memórias saborosas.
+						….criar momentos de puro prazer sem pudor. Trinca, lambe e repete!
 					</p>
 					<p>
-						Trabalhamos incansavelmente para oferecer produtos de qualidade superior, sempre com um toque de inovação e criatividade que nos distingue. Cada doce é uma pequena obra de arte comestível.
+						Trabalhamos incansavelmente para oferecer produtos de qualidade superior, sempre com um toque de inovação e criatividade que nos distingue.
 					</p>
 					<div class="mission-highlights">
 						<div class="highlight">
@@ -104,11 +156,6 @@ import '../styles/about.css';
 					<div class="value-icon">🤝</div>
 					<h3>Proximidade</h3>
 					<p>Valorizamos a relação pessoal com cada cliente, criando uma experiência calorosa e acolhedora em cada interação.</p>
-				</div>
-				<div class="value-card">
-					<div class="value-icon">🌱</div>
-					<h3>Sustentabilidade</h3>
-					<p>Comprometemo-nos com práticas sustentáveis, apoiando produtores locais e minimizando o nosso impacto ambiental.</p>
 				</div>
 				<div class="value-card">
 					<div class="value-icon">😊</div>
