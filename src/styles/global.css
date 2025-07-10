@@ -1,17 +1,24 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Truculenta:wght@400;700&family=Rum+Raisins&display=swap');
 
 /* Chocolate-inspired color palette */
 :root {
-	--chocolate-dark: #3c2415;
-	--chocolate-medium: #5d4037;
-	--chocolate-light: #8d6e63;
-	--beige-dark: #d7ccc8;
-	--beige-light: #efebe9;
-	--cream: #faf8f5;
-	--gold: #d4af37;
-	--warm-white: #fefcf8;
-	--text-dark: #2e1a0f;
-	--text-light: #6d4c41;
+    --color-cream: #FEDBA3;        /* Beige for navbar */
+    --color-dark-red: #5B021E;     /* For accents */
+    --color-light-red: #8A0829;    /* For accents */
+    --color-off-white: #F5F5F5;    /* Main background */
+    --color-white: #FFFFFF;
+    /* Unified palette variables for the rest of the stylesheets */
+    --cream: var(--color-cream);
+    --beige-light: #FFF5DE;
+    --beige-dark: #EED0A4;
+    --chocolate-dark: var(--color-dark-red);
+    --chocolate-medium: var(--color-light-red);
+    --chocolate-light: #8d6e63;
+    --gold: #d4af37;
+    --warm-white: var(--color-white);
+    --text-dark: #2e1a0f;
+    --text-light: #6d4c41;
 }
 
 /* Base styles */
@@ -27,8 +34,8 @@ html {
 }
 
 body {
-	font-family: 'Poppins', sans-serif;
-	background: linear-gradient(135deg, var(--cream) 0%, var(--beige-light) 100%);
+	font-family: 'Truculenta', sans-serif;
+	background: var(--warm-white);
 	color: var(--text-dark);
 	line-height: 1.6;
 	min-height: 100vh;
@@ -62,7 +69,7 @@ body {
 }
 
 .logo-text {
-	font-family: 'Dancing Script', cursive;
+	font-family: 'Rum Raisins', sans-serif;
 	font-size: 2rem;
 	font-weight: 700;
 	display: block;
@@ -149,7 +156,7 @@ main {
 }
 
 .footer-section h3 {
-	font-family: 'Dancing Script', cursive;
+	font-family: 'Rum Raisins', sans-serif;
 	font-size: 1.8rem;
 	margin-bottom: 1rem;
 	color: var(--gold);
@@ -167,7 +174,7 @@ main {
 }
 
 .footer-bottom {
-	border-top: 1px solid var(--chocolate-medium);
+	border-top: 1px solid var(--warm-white);
 	margin-top: 2rem;
 	padding-top: 1rem;
 	text-align: center;
@@ -187,7 +194,7 @@ main {
 }
 
 .page-title {
-	font-family: 'Dancing Script', cursive;
+	font-family: 'Rum Raisins', sans-serif;
 	font-size: 4rem;
 	margin-bottom: 1rem;
 	color: var(--gold);

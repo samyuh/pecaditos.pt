@@ -19,6 +19,28 @@ const { title = "Pecaditos - Doces Tentações" } = Astro.props;
 		<title>{title}</title>
 		<style>
 			@import "../styles/global.css";
+			body {
+				background-color: white;
+			}
+
+			.navbar {
+				background: var(--color-cream);
+			}
+
+			.nav-link {
+				color: var(--color-dark-red);
+			}
+
+			.nav-link:hover {
+				color: var(--gold);
+			}
+
+			.hamburger span {
+				background: var(--color-dark-red);
+			}
+			.logo-text {
+				color: var(--color-dark-red);
+			}
 		</style>
 	</head>
 	<body>
@@ -26,7 +48,6 @@ const { title = "Pecaditos - Doces Tentações" } = Astro.props;
 			<div class="nav-container">
 				<a href="/" class="nav-logo">
 					<span class="logo-text">Pecaditos</span>
-					<span class="logo-subtitle">Doces Tentações</span>
 				</a>
 				<ul class="nav-menu">
 					<li><a href="/" class="nav-link">Início</a></li>
@@ -62,7 +83,7 @@ const { title = "Pecaditos - Doces Tentações" } = Astro.props;
 				</div>
 				<div class="footer-section">
 					<h4>Redes Sociais</h4>
-					<p>📸 @pecaditos (em breve)</p>
+					<p>📸 <a href="https://instagram.com/pecaditos_18">@pecaditos_18</a></p>
 					<p>Segue-nos para ficares a par das nossas novidades!</p>
 				</div>
 			</div>
