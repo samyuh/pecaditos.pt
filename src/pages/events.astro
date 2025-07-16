@@ -91,6 +91,18 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
+	/* CSS Custom Properties for Better Responsiveness */
+	:root {
+		--container-padding: clamp(1rem, 5vw, 2rem);
+		--section-padding: clamp(2rem, 8vw, 4rem);
+		--hero-title-size: clamp(2.5rem, 8vw, 4rem);
+		--hero-subtitle-size: clamp(1rem, 3vw, 1.2rem);
+		--section-title-size: clamp(1.8rem, 5vw, 2.5rem);
+		--card-title-size: clamp(1.3rem, 4vw, 1.8rem);
+		--text-size: clamp(0.875rem, 2.5vw, 1rem);
+		--event-icon-size: clamp(2.5rem, 8vw, 3.5rem);
+	}
+
 	/* Add global box-sizing and overflow prevention */
 	* {
 		box-sizing: border-box;
@@ -104,7 +116,7 @@ import Layout from '../layouts/Layout.astro';
 	/* Events Hero */
 	.events-hero {
 		background: linear-gradient(135deg, var(--cream) 0%, var(--beige-light) 50%, var(--beige-dark) 100%);
-		padding: 4rem 0;
+		padding: var(--section-padding) 0;
 		text-align: center;
 		position: relative;
 		overflow: hidden;
@@ -125,40 +137,38 @@ import Layout from '../layouts/Layout.astro';
 	.container {
 		max-width: 1200px;
 		margin: 0 auto;
-		padding: 0 20px;
+		padding: 0 var(--container-padding);
 		width: 100%;
 		box-sizing: border-box;
+		position: relative;
+		z-index: 1;
 	}
 
 	.hero-title {
 		font-family: 'Dancing Script', cursive;
-		font-size: 4rem;
-		margin-bottom: 1rem;
+		font-size: var(--hero-title-size);
+		font-weight: 700;
 		color: var(--chocolate-dark);
+		margin-bottom: 1rem;
 		text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-		position: relative;
-		z-index: 1;
 		word-wrap: break-word;
 		overflow-wrap: break-word;
-		hyphens: auto;
 	}
 
 	.hero-subtitle {
-		font-size: 1.3rem;
+		font-size: var(--hero-subtitle-size);
 		color: var(--chocolate-medium);
 		opacity: 0.9;
 		max-width: 600px;
 		margin: 0 auto;
 		line-height: 1.6;
-		position: relative;
-		z-index: 1;
 		word-wrap: break-word;
 		overflow-wrap: break-word;
 	}
 
 	/* Events Info */
 	.events-info {
-		padding: 5rem 0;
+		padding: var(--section-padding) 0;
 		background: var(--warm-white);
 		width: 100%;
 		overflow: hidden;
@@ -166,17 +176,17 @@ import Layout from '../layouts/Layout.astro';
 
 	.info-content {
 		display: grid;
-		grid-template-columns: 2fr 1fr;
-		gap: 4rem;
+		grid-template-columns: 1fr 1fr;
+		gap: clamp(2rem, 5vw, 3rem);
 		align-items: center;
 		width: 100%;
 	}
 
 	.info-text h2 {
 		font-family: 'Dancing Script', cursive;
-		font-size: 3rem;
+		font-size: var(--section-title-size);
 		color: var(--chocolate-dark);
-		margin-bottom: 2rem;
+		margin-bottom: 1.5rem;
 		position: relative;
 		word-wrap: break-word;
 		overflow-wrap: break-word;
@@ -187,17 +197,17 @@ import Layout from '../layouts/Layout.astro';
 		position: absolute;
 		bottom: -10px;
 		left: 0;
-		width: 80px;
-		height: 4px;
+		width: clamp(50px, 12vw, 60px);
+		height: 3px;
 		background: var(--gold);
 		border-radius: 2px;
 	}
 
 	.info-text p {
-		font-size: 1.1rem;
 		color: var(--text-light);
-		line-height: 1.8;
+		line-height: 1.7;
 		margin-bottom: 1.5rem;
+		font-size: var(--text-size);
 		word-wrap: break-word;
 		overflow-wrap: break-word;
 	}
@@ -212,14 +222,15 @@ import Layout from '../layouts/Layout.astro';
 		justify-content: center;
 		align-items: center;
 		position: relative;
-		height: 300px;
+		height: clamp(200px, 30vw, 250px);
 		width: 100%;
 	}
 
 	.calendar-icon {
-		font-size: 6rem;
-		animation: bounce 3s ease-in-out infinite;
-		filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+		font-size: clamp(4rem, 12vw, 6rem);
+		position: relative;
+		z-index: 2;
+		animation: pulse 3s ease-in-out infinite;
 	}
 
 	.floating-icons {
@@ -230,9 +241,8 @@ import Layout from '../layouts/Layout.astro';
 
 	.floating-icons span {
 		position: absolute;
-		font-size: 2.5rem;
+		font-size: clamp(1.5rem, 4vw, 2rem);
 		animation: float 3s ease-in-out infinite;
-		opacity: 0.8;
 	}
 
 	.floating-icons span:nth-child(1) {
@@ -242,20 +252,20 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.floating-icons span:nth-child(2) {
-		top: 60%;
-		right: 20%;
+		top: 30%;
+		right: 15%;
 		animation-delay: 1s;
 	}
 
 	.floating-icons span:nth-child(3) {
-		bottom: 20%;
-		left: 50%;
+		bottom: 25%;
+		left: 15%;
 		animation-delay: 2s;
 	}
 
 	/* Upcoming Events */
 	.upcoming-events {
-		padding: 5rem 0;
+		padding: var(--section-padding) 0;
 		background: linear-gradient(135deg, var(--beige-light) 0%, var(--cream) 100%);
 		width: 100%;
 		overflow: hidden;
@@ -263,7 +273,7 @@ import Layout from '../layouts/Layout.astro';
 
 	.section-title {
 		font-family: 'Dancing Script', cursive;
-		font-size: 3.5rem;
+		font-size: var(--section-title-size);
 		color: var(--chocolate-dark);
 		text-align: center;
 		margin-bottom: 3rem;
@@ -278,7 +288,7 @@ import Layout from '../layouts/Layout.astro';
 		bottom: -15px;
 		left: 50%;
 		transform: translateX(-50%);
-		width: 100px;
+		width: clamp(60px, 15vw, 80px);
 		height: 4px;
 		background: var(--gold);
 		border-radius: 2px;
@@ -286,18 +296,17 @@ import Layout from '../layouts/Layout.astro';
 
 	.events-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 2rem;
-		margin-bottom: 3rem;
+		grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+		gap: clamp(1.5rem, 4vw, 2rem);
 		width: 100%;
 	}
 
 	.event-card {
 		background: linear-gradient(135deg, var(--cream), var(--beige-light));
-		padding: 2.5rem 2rem;
+		padding: clamp(1.5rem, 4vw, 2rem);
 		border-radius: 20px;
 		text-align: center;
-		box-shadow: 0 10px 30px rgba(60, 36, 21, 0.1);
+		box-shadow: 0 8px 25px rgba(60, 36, 21, 0.1);
 		transition: all 0.3s ease;
 		border: 2px solid transparent;
 		position: relative;
@@ -313,24 +322,18 @@ import Layout from '../layouts/Layout.astro';
 		left: 0;
 		right: 0;
 		height: 4px;
-		background: linear-gradient(90deg, var(--chocolate-light), var(--gold));
+		background: linear-gradient(90deg, var(--chocolate-light), var(--chocolate-medium));
 		transform: scaleX(0);
 		transition: transform 0.3s ease;
 	}
 
 	.event-card:hover {
-		/* Removed translateY to prevent overflow */
-		box-shadow: 0 20px 40px rgba(60, 36, 21, 0.15);
+		box-shadow: 0 15px 35px rgba(60, 36, 21, 0.2);
 		border-color: var(--chocolate-light);
 	}
 
 	.event-card:hover::before {
 		transform: scaleX(1);
-	}
-
-	.event-card.coming-soon {
-		opacity: 0.9;
-		background: linear-gradient(135deg, #f8f8f8, #e8e8e8);
 	}
 
 	.event-status {
@@ -339,99 +342,48 @@ import Layout from '../layouts/Layout.astro';
 		right: 15px;
 		background: var(--gold);
 		color: var(--chocolate-dark);
-		padding: 0.4rem 0.8rem;
+		padding: clamp(0.3rem, 1vw, 0.5rem) clamp(0.6rem, 2vw, 0.8rem);
 		border-radius: 15px;
-		font-size: 0.75rem;
+		font-size: clamp(0.6rem, 2vw, 0.75rem);
 		font-weight: 600;
 		text-transform: uppercase;
-		letter-spacing: 0.5px;
-	}
-
-	.event-card.coming-soon .event-status {
-		background: #999;
-		color: white;
 	}
 
 	.event-icon {
-		font-size: 4rem;
-		margin-bottom: 1.5rem;
+		font-size: var(--event-icon-size);
+		margin-bottom: 1rem;
 		display: block;
 		animation: bounce 2s ease-in-out infinite;
 	}
 
 	.event-card h3 {
 		font-family: 'Dancing Script', cursive;
-		font-size: 2.2rem;
+		font-size: var(--card-title-size);
 		color: var(--chocolate-dark);
-		margin-bottom: 1rem;
+		margin-bottom: 0.5rem;
 		line-height: 1.2;
 		word-wrap: break-word;
 		overflow-wrap: break-word;
 	}
 
-	.event-card.coming-soon h3 {
-		color: #666;
-	}
-
 	.event-date {
 		font-weight: 600;
-		color: var(--gold);
+		color: var(--chocolate-medium);
 		margin-bottom: 1rem;
-		font-size: 1rem;
-		text-transform: uppercase;
-		letter-spacing: 0.5px;
-	}
-
-	.event-card.coming-soon .event-date {
-		color: #999;
+		font-size: var(--text-size);
 	}
 
 	.event-card p {
 		color: var(--text-light);
 		line-height: 1.6;
-		font-size: 0.95rem;
+		font-size: var(--text-size);
 		word-wrap: break-word;
 		overflow-wrap: break-word;
-	}
-
-	.event-card.coming-soon p {
-		color: #888;
-	}
-
-	.events-notice {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-		background: linear-gradient(135deg, #fff3cd, #ffeaa7);
-		padding: 2rem;
-		border-radius: 15px;
-		border-left: 5px solid var(--gold);
-		margin-top: 2rem;
-		width: 100%;
-		box-sizing: border-box;
-	}
-
-	.notice-icon {
-		font-size: 2rem;
-		flex-shrink: 0;
-	}
-
-	.events-notice p {
-		margin: 0;
-		color: var(--text-dark);
-		line-height: 1.6;
-		font-size: 1rem;
-		word-wrap: break-word;
-		overflow-wrap: break-word;
-	}
-
-	.events-notice strong {
-		color: var(--chocolate-dark);
 	}
 
 	/* Private Events */
 	.private-events {
-		padding: 5rem 0;
+		padding: var(--section-padding) 0;
 		background: var(--warm-white);
 		width: 100%;
 		overflow: hidden;
@@ -439,8 +391,8 @@ import Layout from '../layouts/Layout.astro';
 
 	.private-content {
 		display: grid;
-		grid-template-columns: 1fr 2fr;
-		gap: 4rem;
+		grid-template-columns: 1fr 1fr;
+		gap: clamp(2rem, 5vw, 3rem);
 		align-items: center;
 		width: 100%;
 	}
@@ -450,14 +402,15 @@ import Layout from '../layouts/Layout.astro';
 		justify-content: center;
 		align-items: center;
 		position: relative;
-		height: 250px;
+		height: clamp(200px, 30vw, 250px);
 		width: 100%;
 	}
 
 	.party-icon {
-		font-size: 6rem;
-		animation: bounce 3s ease-in-out infinite;
-		filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+		font-size: clamp(4rem, 12vw, 6rem);
+		position: relative;
+		z-index: 2;
+		animation: pulse 3s ease-in-out infinite;
 	}
 
 	.celebration-icons {
@@ -468,34 +421,33 @@ import Layout from '../layouts/Layout.astro';
 
 	.celebration-icons span {
 		position: absolute;
-		font-size: 2rem;
+		font-size: clamp(1.5rem, 4vw, 2rem);
 		animation: float 3s ease-in-out infinite;
-		opacity: 0.8;
 	}
 
 	.celebration-icons span:nth-child(1) {
 		top: 20%;
 		left: 20%;
-		animation-delay: -0.5s;
+		animation-delay: 0s;
 	}
 
 	.celebration-icons span:nth-child(2) {
-		top: 60%;
-		right: 20%;
-		animation-delay: -1s;
+		top: 30%;
+		right: 15%;
+		animation-delay: 1s;
 	}
 
 	.celebration-icons span:nth-child(3) {
-		bottom: 20%;
-		left: 50%;
-		animation-delay: -1.5s;
+		bottom: 25%;
+		left: 15%;
+		animation-delay: 2s;
 	}
 
 	.private-text h2 {
 		font-family: 'Dancing Script', cursive;
-		font-size: 3rem;
+		font-size: var(--section-title-size);
 		color: var(--chocolate-dark);
-		margin-bottom: 2rem;
+		margin-bottom: 1.5rem;
 		position: relative;
 		word-wrap: break-word;
 		overflow-wrap: break-word;
@@ -506,17 +458,17 @@ import Layout from '../layouts/Layout.astro';
 		position: absolute;
 		bottom: -10px;
 		left: 0;
-		width: 80px;
-		height: 4px;
+		width: clamp(50px, 12vw, 60px);
+		height: 3px;
 		background: var(--gold);
 		border-radius: 2px;
 	}
 
 	.private-text p {
-		font-size: 1.1rem;
 		color: var(--text-light);
-		line-height: 1.8;
+		line-height: 1.7;
 		margin-bottom: 2rem;
+		font-size: var(--text-size);
 		word-wrap: break-word;
 		overflow-wrap: break-word;
 	}
@@ -529,33 +481,24 @@ import Layout from '../layouts/Layout.astro';
 	.services-list {
 		list-style: none;
 		padding: 0;
-		margin: 2rem 0;
-		width: 100%;
+		margin: 0 0 2rem 0;
 	}
 
 	.services-list li {
-		padding: 0.8rem 0;
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		margin-bottom: 0.75rem;
+		font-size: var(--text-size);
 		color: var(--text-light);
-		font-size: 1rem;
 		line-height: 1.6;
-		border-bottom: 1px solid rgba(60, 36, 21, 0.1);
-		transition: all 0.3s ease;
 		word-wrap: break-word;
 		overflow-wrap: break-word;
 	}
 
-	.services-list li:hover {
-		color: var(--chocolate-dark);
-		/* Removed translateX to prevent overflow */
-	}
-
-	.services-list li:last-child {
-		border-bottom: none;
-	}
-
 	/* Button Styles */
 	.btn {
-		padding: 1rem 2rem;
+		padding: clamp(0.8rem, 2.5vw, 1rem) clamp(1.5rem, 4vw, 2rem);
 		border-radius: 50px;
 		text-decoration: none;
 		font-weight: 600;
@@ -564,8 +507,9 @@ import Layout from '../layouts/Layout.astro';
 		align-items: center;
 		gap: 0.5rem;
 		border: 2px solid transparent;
-		font-size: 0.95rem;
+		font-size: clamp(0.875rem, 2.5vw, 0.95rem);
 		box-sizing: border-box;
+		min-height: 44px; /* Touch target size */
 	}
 
 	.btn-primary {
@@ -575,7 +519,6 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.btn-primary:hover {
-		/* Removed translateY to prevent overflow */
 		box-shadow: 0 6px 20px rgba(60, 36, 21, 0.4);
 		background: linear-gradient(45deg, var(--chocolate-dark), var(--chocolate-medium));
 	}
@@ -586,229 +529,188 @@ import Layout from '../layouts/Layout.astro';
 
 	/* Animations */
 	@keyframes float {
-		0%, 100% { transform: translateY(0px) rotate(0deg); }
-		50% { transform: translateY(-15px) rotate(5deg); }
+		0%, 100% { transform: translateY(0px); }
+		50% { transform: translateY(-15px); }
 	}
 
 	@keyframes bounce {
-		0%, 100% { transform: translateY(0px) scale(1); }
-		50% { transform: translateY(-10px) scale(1.05); }
+		0%, 100% { transform: translateY(0px); }
+		50% { transform: translateY(-8px); }
 	}
 
 	@keyframes pulse {
 		0%, 100% { transform: scale(1); }
-		50% { transform: scale(1.1); }
+		50% { transform: scale(1.05); }
 	}
 
-	/* Mobile-First Responsive Design */
+	/* Responsive Design with Enhanced Breakpoints */
+	
+	/* Large Tablets and Small Desktops */
+	@media (max-width: 1024px) {
+		.events-grid {
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		}
+		
+		.info-content,
+		.private-content {
+			gap: 2rem;
+		}
+	}
+
+	/* Tablets */
 	@media (max-width: 768px) {
-		.events-hero {
-			padding: 3rem 0;
-			overflow-x: hidden;
-		}
-
-		.hero-title {
-			font-size: 3rem;
-			word-wrap: break-word;
-			overflow-wrap: break-word;
-			hyphens: auto;
-		}
-
-		.hero-subtitle {
-			font-size: 1.1rem;
-			word-wrap: break-word;
-			overflow-wrap: break-word;
-		}
-
-		.container {
-			padding: 0 15px;
-			max-width: 100%;
-			width: 100%;
-		}
-
-		.events-info, .upcoming-events, .private-events {
-			padding: 3rem 0;
-			overflow-x: hidden;
-		}
-
-		.info-content, .private-content {
+		.info-content,
+		.private-content {
 			grid-template-columns: 1fr;
-			gap: 2.5rem;
 			text-align: center;
-			width: 100%;
 		}
 
-		.info-text h2, .private-text h2 {
-			font-size: 2.5rem;
-			word-wrap: break-word;
-			overflow-wrap: break-word;
-		}
-
-		.info-text h2::after, .private-text h2::after {
+		.info-text h2::after,
+		.private-text h2::after {
 			left: 50%;
 			transform: translateX(-50%);
 		}
 
-		.section-title {
-			font-size: 2.5rem;
-			word-wrap: break-word;
-			overflow-wrap: break-word;
-		}
-
 		.events-grid {
 			grid-template-columns: 1fr;
-			gap: 2rem;
+		}
+
+		.services-list {
+			max-width: 400px;
+			margin: 0 auto 2rem;
+		}
+	}
+
+	/* Small Tablets and Large Phones */
+	@media (max-width: 640px) {
+		.btn {
 			width: 100%;
+			max-width: 280px;
+			justify-content: center;
 		}
 
-		.event-card {
-			padding: 2rem 1.5rem;
-			margin: 0;
-		}
-
-		.event-icon {
-			font-size: 3.2rem;
-		}
-
-		.event-card h3 {
-			font-size: 1.8rem;
-			word-wrap: break-word;
-			overflow-wrap: break-word;
-		}
-
-		.events-notice {
-			flex-direction: column;
+		.private-text {
 			text-align: center;
-			padding: 2rem;
-			margin: 0;
-		}
-
-		.info-visual, .private-visual {
-			height: 300px;
-		}
-
-		.calendar-icon, .party-icon {
-			font-size: 5rem;
-		}
-
-		.floating-icons span, .celebration-icons span {
-			font-size: 2rem;
-		}
-
-		.cta-buttons {
-			flex-direction: column;
-			align-items: center;
-		}
-
-		.btn {
-			width: 100%;
-			max-width: 300px;
 		}
 	}
 
+	/* Mobile Phones */
 	@media (max-width: 480px) {
-		.container {
-			padding: 0 10px;
-			width: 100%;
-		}
-
-		.hero-title {
-			font-size: 2.5rem;
-		}
-
-		.hero-subtitle {
-			font-size: 1rem;
-		}
-
-		.info-text h2, .private-text h2 {
-			font-size: 2.2rem;
-		}
-
-		.section-title {
-			font-size: 2.2rem;
-		}
-
-		.event-card {
-			padding: 1.8rem 1.2rem;
-		}
-
-		.event-icon {
-			font-size: 3rem;
-		}
-
-		.event-card h3 {
-			font-size: 1.6rem;
-		}
-
-		.events-notice {
-			padding: 1.5rem;
-			margin: 0;
-		}
-
-		.info-text p, .private-text p {
-			font-size: 1rem;
-		}
-
-		.calendar-icon, .party-icon {
-			font-size: 4.5rem;
-		}
-
-		.floating-icons span, .celebration-icons span {
-			font-size: 1.8rem;
-		}
-
-		.btn {
-			padding: 0.9rem 1.5rem;
-			font-size: 0.9rem;
-		}
-
-		.events-info, .upcoming-events, .private-events {
-			padding: 2.5rem 0;
-		}
-	}
-
-	/* Extra small screens */
-	@media (max-width: 360px) {
-		.container {
-			padding: 0 5px;
-			width: 100%;
-		}
-
-		.hero-title {
-			font-size: 2.2rem;
-		}
-
-		.info-text h2, .private-text h2 {
-			font-size: 2rem;
-		}
-
-		.section-title {
-			font-size: 2rem;
+		:root {
+			--container-padding: 1rem;
+			--section-padding: 2rem;
 		}
 
 		.event-card {
 			padding: 1.5rem 1rem;
 		}
 
-		.event-card h3 {
-			font-size: 1.5rem;
+		.event-status {
+			top: 10px;
+			right: 10px;
+			padding: 0.25rem 0.5rem;
 		}
 
-		.event-card p {
-			font-size: 0.9rem;
+		.services-list li {
+			margin-bottom: 0.5rem;
+		}
+	}
+
+	/* Small Mobile Phones */
+	@media (max-width: 360px) {
+		:root {
+			--container-padding: 0.75rem;
+			--section-padding: 1.5rem;
 		}
 
-		.events-notice {
-			padding: 1.2rem;
-			margin: 0;
+		.event-card {
+			padding: 1.25rem 0.75rem;
 		}
 
-		.calendar-icon, .party-icon {
-			font-size: 4rem;
+		.event-status {
+			top: 8px;
+			right: 8px;
+			padding: 0.2rem 0.4rem;
+		}
+	}
+
+	/* Very Small Screens */
+	@media (max-width: 320px) {
+		:root {
+			--container-padding: 0.5rem;
 		}
 
-		.floating-icons span, .celebration-icons span {
-			font-size: 1.5rem;
+		.event-card {
+			padding: 1rem 0.5rem;
+		}
+
+		.services-list li {
+			gap: 0.5rem;
+		}
+	}
+
+	/* High DPI Displays */
+	@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+		.event-icon,
+		.calendar-icon,
+		.party-icon {
+			image-rendering: -webkit-optimize-contrast;
+			image-rendering: crisp-edges;
+		}
+	}
+
+	/* Landscape orientation for mobile */
+	@media (max-height: 500px) and (orientation: landscape) {
+		.events-hero {
+			padding: 1.5rem 0;
+		}
+
+		.info-visual,
+		.private-visual {
+			height: 150px;
+		}
+	}
+
+	/* Reduced motion preferences */
+	@media (prefers-reduced-motion: reduce) {
+		.event-icon,
+		.calendar-icon,
+		.party-icon,
+		.floating-icons span,
+		.celebration-icons span {
+			animation: none;
+		}
+		
+		.events-hero::before {
+			animation: none;
+		}
+	}
+
+	/* Print styles */
+	@media print {
+		.events-hero,
+		.events-info,
+		.upcoming-events,
+		.private-events {
+			padding: 1rem 0;
+		}
+		
+		.btn {
+			border: 1px solid #000;
+			color: #000 !important;
+			background: transparent !important;
+		}
+		
+		.event-status {
+			border: 1px solid #000;
+			color: #000 !important;
+			background: transparent !important;
+		}
+		
+		.event-icon,
+		.calendar-icon,
+		.party-icon {
+			filter: none;
 		}
 	}
 </style>
