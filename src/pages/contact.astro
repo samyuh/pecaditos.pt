@@ -107,6 +107,17 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
+	/* CSS Custom Properties for Better Responsiveness */
+	:root {
+		--container-padding: clamp(1rem, 5vw, 2rem);
+		--section-padding: clamp(2rem, 8vw, 4rem);
+		--hero-title-size: clamp(2.5rem, 8vw, 4rem);
+		--section-title-size: clamp(1.8rem, 5vw, 2.5rem);
+		--card-title-size: clamp(1.3rem, 4vw, 1.8rem);
+		--text-size: clamp(0.875rem, 2.5vw, 1rem);
+		--contact-icon-size: clamp(3rem, 8vw, 4rem);
+	}
+
 	/* Add global box-sizing and overflow prevention */
 	* {
 		box-sizing: border-box;
@@ -117,273 +128,10 @@ import Layout from '../layouts/Layout.astro';
 		max-width: 100vw;
 	}
 
-	/* Contact Hero Section */
-	.contact-hero {
-		background: linear-gradient(135deg, var(--chocolate-dark) 0%, var(--chocolate-medium) 100%);
-		color: var(--warm-white);
-		padding: 4rem 0 3rem;
-		text-align: center;
-		position: relative;
-		overflow: hidden;
-		width: 100%;
-	}
-
-	.contact-hero::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
-		animation: float 20s ease-in-out infinite;
-	}
-
-	.hero-title {
-		font-family: 'Dancing Script', cursive;
-		font-size: 3.5rem;
-		margin-bottom: 1rem;
-		color: var(--gold);
-		text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-		position: relative;
-		z-index: 1;
-		word-wrap: break-word;
-		overflow-wrap: break-word;
-		hyphens: auto;
-	}
-
-	.hero-subtitle {
-		font-size: 1.1rem;
-		opacity: 0.9;
-		max-width: 600px;
-		margin: 0 auto;
-		line-height: 1.6;
-		position: relative;
-		z-index: 1;
-		word-wrap: break-word;
-		overflow-wrap: break-word;
-	}
-
-	.container {
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 0 20px;
-		width: 100%;
-		box-sizing: border-box;
-	}
-
-	/* Contact Info Section */
-	.contact-info {
-		padding: 4rem 0;
-		background: var(--warm-white);
-		width: 100%;
-		overflow: hidden;
-	}
-
-	.contact-intro {
-		text-align: center;
-		margin-bottom: 3rem;
-	}
-
-	.contact-intro h2 {
-		font-family: 'Dancing Script', cursive;
-		font-size: 2.5rem;
-		color: var(--chocolate-dark);
-		margin-bottom: 1.5rem;
-		position: relative;
-		word-wrap: break-word;
-		overflow-wrap: break-word;
-	}
-
-	.contact-intro h2::after {
-		content: '';
-		position: absolute;
-		bottom: -10px;
-		left: 50%;
-		transform: translateX(-50%);
-		width: 60px;
-		height: 3px;
-		background: var(--gold);
-		border-radius: 2px;
-	}
-
-	.contact-intro p {
-		font-size: 1rem;
-		color: var(--text-light);
-		line-height: 1.7;
-		max-width: 700px;
-		margin: 0 auto;
-		word-wrap: break-word;
-		overflow-wrap: break-word;
-	}
-
-	.contact-list {
-		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
-		max-width: 800px;
-		margin: 0 auto;
-		width: 100%;
-	}
-
-	.contact-item {
-		display: flex;
-		align-items: flex-start;
-		gap: 1.5rem;
-		padding: 1.5rem;
-		background: linear-gradient(135deg, var(--cream), var(--beige-light));
-		border-radius: 15px;
-		border-left: 4px solid var(--chocolate-light);
-		transition: all 0.3s ease;
-		box-shadow: 0 4px 15px rgba(60, 36, 21, 0.08);
-		width: 100%;
-		box-sizing: border-box;
-	}
-
-	.contact-item:hover {
-		box-shadow: 0 6px 20px rgba(60, 36, 21, 0.12);
-		border-left-color: var(--gold);
-	}
-
-	.contact-icon {
-		font-size: 2.5rem;
-		flex-shrink: 0;
-		animation: bounce 2s ease-in-out infinite;
-	}
-
-	.contact-details {
-		flex: 1;
-		min-width: 0;
-	}
-
-	.contact-details h3 {
-		font-family: 'Dancing Script', cursive;
-		font-size: 1.5rem;
-		color: var(--chocolate-dark);
-		margin-bottom: 0.5rem;
-		word-wrap: break-word;
-		overflow-wrap: break-word;
-	}
-
-	.contact-details p {
-		color: var(--text-light);
-		margin-bottom: 0.8rem;
-		font-size: 0.95rem;
-		line-height: 1.5;
-		word-wrap: break-word;
-		overflow-wrap: break-word;
-	}
-
-	.contact-link {
-		color: var(--chocolate-medium);
-		text-decoration: none;
-		font-weight: 600;
-		font-size: 1rem;
-		transition: all 0.3s ease;
-		display: inline-block;
-		margin-bottom: 0.3rem;
-		padding: 0.3rem 0;
-		word-wrap: break-word;
-		overflow-wrap: break-word;
-	}
-
-	.contact-link:hover {
-	}
-
-	.contact-link.coming-soon {
-		opacity: 0.7;
-		font-style: italic;
-	}
-
-	.phone-numbers {
-		display: flex;
-		flex-direction: column;
-		gap: 0.3rem;
-	}
-
-	/* Contact Info Extra Section */
-	.contact-extra {
-		padding: 4rem 0;
-		background: var(--warm-white);
-		width: 100%;
-		overflow: hidden;
-	}
-
-	.extra-content {
-		display: grid;
-		grid-template-columns: 2fr 1fr;
-		gap: 3rem;
-		align-items: center;
-		width: 100%;
-	}
-
-	.extra-text h2 {
-		font-family: 'Dancing Script', cursive;
-		font-size: 2.5rem;
-		color: var(--chocolate-dark);
-		margin-bottom: 1.5rem;
-		position: relative;
-		word-wrap: break-word;
-		overflow-wrap: break-word;
-	}
-
-	.extra-text h2::after {
-		content: '';
-		position: absolute;
-		bottom: -10px;
-		left: 0;
-		width: 60px;
-		height: 3px;
-		background: var(--gold);
-		border-radius: 2px;
-	}
-
-	.extra-text p {
-		color: var(--text-light);
-		line-height: 1.7;
-		margin-bottom: 1.2rem;
-		font-size: 1rem;
-		word-wrap: break-word;
-		overflow-wrap: break-word;
-	}
-
-	.extra-text strong {
-		color: var(--chocolate-dark);
-		font-weight: 600;
-	}
-
-	.response-time {
-		display: flex;
-		flex-direction: column;
-		gap: 0.8rem;
-		margin-top: 1.5rem;
-		width: 100%;
-	}
-
-	.time-item {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-		padding: 0.8rem;
-		background: linear-gradient(135deg, var(--cream), var(--beige-light));
-		border-radius: 12px;
-		transition: all 0.3s ease;
-		width: 100%;
-		box-sizing: border-box;
-	}
-
-	.time-item:hover {
-		background: linear-gradient(135deg, var(--beige-light), var(--cream));
-	}
-
-	.time-icon {
-		font-size: 1.3rem;
-		flex-shrink: 0;
-	}
-	/* Events Hero */
+	/* Events Hero (used for contact page header) */
 	.events-hero {
 		background: linear-gradient(135deg, var(--cream) 0%, var(--beige-light) 50%, var(--beige-dark) 100%);
-		padding: 4rem 0;
+		padding: var(--section-padding) 0;
 		text-align: center;
 		position: relative;
 		overflow: hidden;
@@ -397,66 +145,252 @@ import Layout from '../layouts/Layout.astro';
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="1" fill="rgba(60,36,21,0.1)"/><circle cx="75" cy="45" r="1.5" fill="rgba(60,36,21,0.1)"/><circle cx="45" cy="85" r="1" fill="rgba(60,36,21,0.1)"/></svg>');
-		animation: float 30s ease-in-out infinite;
+		background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(60,36,21,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(60,36,21,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(60,36,21,0.1)"/></svg>');
+		animation: float 25s ease-in-out infinite;
 	}
 
 	.container {
 		max-width: 1200px;
 		margin: 0 auto;
-		padding: 0 20px;
+		padding: 0 var(--container-padding);
 		width: 100%;
 		box-sizing: border-box;
+		position: relative;
+		z-index: 1;
 	}
 
 	.hero-title {
 		font-family: 'Dancing Script', cursive;
-		font-size: 4rem;
-		margin-bottom: 1rem;
+		font-size: var(--hero-title-size);
+		font-weight: 700;
 		color: var(--chocolate-dark);
+		margin-bottom: 1rem;
 		text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-		position: relative;
-		z-index: 1;
-		word-wrap: break-word;
-		overflow-wrap: break-word;
-		hyphens: auto;
-	}
-
-	.hero-subtitle {
-		font-size: 1.3rem;
-		color: var(--chocolate-medium);
-		opacity: 0.9;
-		max-width: 600px;
-		margin: 0 auto;
-		line-height: 1.6;
-		position: relative;
-		z-index: 1;
 		word-wrap: break-word;
 		overflow-wrap: break-word;
 	}
 
-	/* Events Info */
-	.events-info {
-		padding: 5rem 0;
+	/* Contact Info Section */
+	.contact-info {
+		padding: var(--section-padding) 0;
 		background: var(--warm-white);
 		width: 100%;
 		overflow: hidden;
 	}
 
-	.info-content {
+	.contact-intro {
+		text-align: center;
+		margin-bottom: clamp(2rem, 6vw, 3rem);
+	}
+
+	.contact-intro h2 {
+		font-family: 'Dancing Script', cursive;
+		font-size: var(--section-title-size);
+		color: var(--chocolate-dark);
+		margin-bottom: 1rem;
+		position: relative;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+
+	.contact-intro h2::after {
+		content: '';
+		position: absolute;
+		bottom: -10px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: clamp(50px, 12vw, 60px);
+		height: 3px;
+		background: var(--gold);
+		border-radius: 2px;
+	}
+
+	.contact-intro p {
+		color: var(--text-light);
+		line-height: 1.7;
+		font-size: var(--text-size);
+		max-width: 600px;
+		margin: 0 auto;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+
+	.contact-list {
 		display: grid;
-		grid-template-columns: 2fr 1fr;
-		gap: 4rem;
+		grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+		gap: clamp(1.5rem, 4vw, 2rem);
+		width: 100%;
+	}
+
+	.contact-item {
+		background: linear-gradient(135deg, var(--cream), var(--beige-light));
+		padding: clamp(1.5rem, 4vw, 2rem);
+		border-radius: 20px;
+		box-shadow: 0 8px 25px rgba(60, 36, 21, 0.1);
+		transition: all 0.3s ease;
+		border: 2px solid transparent;
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		box-sizing: border-box;
+		display: flex;
+		align-items: flex-start;
+		gap: 1.5rem;
+	}
+
+	.contact-item::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 4px;
+		background: linear-gradient(90deg, var(--chocolate-light), var(--chocolate-medium));
+		transform: scaleX(0);
+		transition: transform 0.3s ease;
+	}
+
+	.contact-item:hover {
+		box-shadow: 0 15px 35px rgba(60, 36, 21, 0.2);
+		border-color: var(--chocolate-light);
+	}
+
+	.contact-item:hover::before {
+		transform: scaleX(1);
+	}
+
+	.contact-icon {
+		font-size: var(--contact-icon-size);
+		flex-shrink: 0;
+		animation: bounce 2s ease-in-out infinite;
+	}
+
+	.contact-details {
+		flex: 1;
+	}
+
+	.contact-item h3 {
+		font-family: 'Dancing Script', cursive;
+		font-size: var(--card-title-size);
+		color: var(--chocolate-dark);
+		margin-bottom: 0.5rem;
+		line-height: 1.2;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+
+	.contact-item p {
+		color: var(--text-light);
+		line-height: 1.6;
+		margin-bottom: 1rem;
+		font-size: var(--text-size);
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+
+	.contact-link {
+		color: var(--chocolate-medium);
+		text-decoration: none;
+		font-weight: 600;
+		font-size: var(--text-size);
+		transition: color 0.3s ease;
+		display: inline-block;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+
+	.contact-link:hover {
+		color: var(--chocolate-dark);
+	}
+
+	.phone-numbers {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	/* Contact Extra Section */
+	.contact-extra {
+		padding: var(--section-padding) 0;
+		background: linear-gradient(135deg, var(--beige-light) 0%, var(--cream) 100%);
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.extra-content {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: clamp(2rem, 5vw, 3rem);
 		align-items: center;
 		width: 100%;
+	}
+
+	.extra-text h2 {
+		font-family: 'Dancing Script', cursive;
+		font-size: var(--section-title-size);
+		color: var(--chocolate-dark);
+		margin-bottom: 1.5rem;
+		position: relative;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+
+	.extra-text h2::after {
+		content: '';
+		position: absolute;
+		bottom: -10px;
+		left: 0;
+		width: clamp(50px, 12vw, 60px);
+		height: 3px;
+		background: var(--gold);
+		border-radius: 2px;
+	}
+
+	.extra-text p {
+		color: var(--text-light);
+		line-height: 1.7;
+		margin-bottom: 1.2rem;
+		font-size: var(--text-size);
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+
+	.extra-text strong {
+		color: var(--chocolate-dark);
+		font-weight: 600;
+	}
+
+	.response-time {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		margin-top: 1.5rem;
+	}
+
+	.time-item {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		background: rgba(255, 255, 255, 0.5);
+		padding: clamp(0.8rem, 2vw, 1rem);
+		border-radius: 15px;
+		transition: all 0.3s ease;
+		border: 1px solid transparent;
+	}
+
+	.time-item:hover {
+		background: rgba(255, 255, 255, 0.8);
+		border-color: var(--chocolate-light);
+	}
+
+	.time-icon {
+		font-size: clamp(1.2rem, 3vw, 1.5rem);
 	}
 
 	.time-item span:last-child {
 		font-weight: 600;
 		color: var(--chocolate-dark);
-		font-size: 0.95rem;
-		word-wrap: break-word;
-		overflow-wrap: break-word;
+		font-size: var(--text-size);
 	}
 
 	.extra-visual {
@@ -464,21 +398,24 @@ import Layout from '../layouts/Layout.astro';
 		justify-content: center;
 		align-items: center;
 		position: relative;
+		height: clamp(200px, 30vw, 250px);
 		width: 100%;
 	}
 
 	.support-illustration {
 		position: relative;
-		width: 200px;
-		height: 200px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		max-width: 100%;
+		width: clamp(150px, 40vw, 200px);
+		height: clamp(150px, 40vw, 200px);
+		background: linear-gradient(135deg, var(--cream), var(--beige-light));
+		border-radius: 50%;
+		box-shadow: 0 15px 30px rgba(60, 36, 21, 0.1);
 	}
 
 	.support-icon {
-		font-size: 4rem;
+		font-size: clamp(3rem, 8vw, 4rem);
 		animation: pulse 3s ease-in-out infinite;
 	}
 
@@ -490,62 +427,26 @@ import Layout from '../layouts/Layout.astro';
 
 	.floating-hearts span {
 		position: absolute;
-		font-size: 1.5rem;
-		animation: float 4s ease-in-out infinite;
+		font-size: clamp(1.2rem, 3vw, 1.5rem);
+		animation: float 3s ease-in-out infinite;
 	}
 
 	.floating-hearts span:nth-child(1) {
-		top: 20%;
-		left: 20%;
+		top: 15%;
+		left: 15%;
 		animation-delay: 0s;
 	}
 
 	.floating-hearts span:nth-child(2) {
-		top: 60%;
-		right: 15%;
-		animation-delay: 1.5s;
+		top: 25%;
+		right: 10%;
+		animation-delay: 1s;
 	}
 
 	.floating-hearts span:nth-child(3) {
-		bottom: 25%;
-		left: 15%;
-		animation-delay: 3s;
-	}
-
-	/* Button Styles */
-	.btn {
-		padding: 1rem 2rem;
-		border-radius: 50px;
-		text-decoration: none;
-		font-weight: 600;
-		transition: all 0.3s ease;
-		display: inline-flex;
-		align-items: center;
-		gap: 0.5rem;
-		border: 2px solid transparent;
-		cursor: pointer;
-		font-size: 1rem;
-		font-family: 'Poppins', sans-serif;
-		box-sizing: border-box;
-	}
-
-	.btn-primary {
-		background: linear-gradient(45deg, var(--chocolate-medium), var(--chocolate-dark));
-		color: var(--warm-white);
-		box-shadow: 0 4px 15px rgba(60, 36, 21, 0.3);
-		border: none;
-		width: 100%;
-		justify-content: center;
-		margin-top: 1.2rem;
-	}
-
-	.btn-primary:hover {
-		box-shadow: 0 6px 20px rgba(60, 36, 21, 0.4);
-		background: linear-gradient(45deg, var(--chocolate-dark), var(--chocolate-medium));
-	}
-
-	.btn-icon {
-		font-size: 1.1rem;
+		bottom: 20%;
+		left: 20%;
+		animation-delay: 2s;
 	}
 
 	/* Animations */
@@ -564,88 +465,34 @@ import Layout from '../layouts/Layout.astro';
 		50% { transform: scale(1.05); }
 	}
 
-	/* Mobile-First Responsive Design */
-	@media (max-width: 768px) {
-		.contact-hero {
-			padding: 3rem 0;
-			overflow-x: hidden;
-		}
-
-		.hero-title {
-			font-size: 3rem;
-			word-wrap: break-word;
-			overflow-wrap: break-word;
-			hyphens: auto;
-		}
-
-		.hero-subtitle {
-			font-size: 1.1rem;
-			word-wrap: break-word;
-			overflow-wrap: break-word;
-		}
-
-		.container {
-			padding: 0 15px;
-			max-width: 100%;
-			width: 100%;
-		}
-
-		.contact-info, .contact-form-section, .contact-extra {
-			padding: 3rem 0;
-			overflow-x: hidden;
-		}
-
-		.contact-intro h2,
-		.form-intro h2,
-		.extra-text h2 {
-			font-size: 2.2rem;
-			word-wrap: break-word;
-			overflow-wrap: break-word;
-		}
-
+	/* Responsive Design with Enhanced Breakpoints */
+	
+	/* Large Tablets and Small Desktops */
+	@media (max-width: 1024px) {
 		.contact-list {
-			width: 100%;
-			margin: 0;
-			padding: 0;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		}
+		
+		.extra-content {
+			gap: 2rem;
+		}
+	}
+
+	/* Tablets */
+	@media (max-width: 768px) {
+		.contact-list {
+			grid-template-columns: 1fr;
 		}
 
 		.contact-item {
-			padding: 2rem 1.5rem;
-			margin: 0;
-			width: 100%;
-		}
-
-		.contact-icon {
-			font-size: 3rem;
-		}
-
-		.contact-item h3 {
-			font-size: 1.6rem;
-			word-wrap: break-word;
-			overflow-wrap: break-word;
-		}
-
-		.form-content {
-			padding: 0;
-			width: 100%;
-		}
-
-		.contact-form {
-			padding: 2rem;
-			margin: 0;
-			width: 100%;
-		}
-
-		.form-row {
-			grid-template-columns: 1fr;
+			flex-direction: column;
+			text-align: center;
 			gap: 1rem;
 		}
 
 		.extra-content {
 			grid-template-columns: 1fr;
-			gap: 2rem;
 			text-align: center;
-			width: 100%;
 		}
 
 		.extra-text h2::after {
@@ -653,111 +500,128 @@ import Layout from '../layouts/Layout.astro';
 			transform: translateX(-50%);
 		}
 
-		.support-illustration {
-			width: 180px;
-			height: 180px;
-			max-width: 100%;
-		}
-
-		.support-icon {
-			font-size: 3.5rem;
-		}
-
-		.floating-hearts span {
-			font-size: 1.5rem;
-		}
-
-		.btn {
-			width: 100%;
-			max-width: 300px;
+		.response-time {
+			max-width: 400px;
+			margin: 1.5rem auto 0;
 		}
 	}
 
+	/* Small Tablets and Large Phones */
+	@media (max-width: 640px) {
+		.contact-item {
+			padding: 1.5rem 1rem;
+		}
+
+		.phone-numbers {
+			text-align: center;
+		}
+	}
+
+	/* Mobile Phones */
 	@media (max-width: 480px) {
-		.container {
-			padding: 0 10px;
-			width: 100%;
-		}
-
-		.hero-title {
-			font-size: 2.2rem;
-		}
-
-		.contact-intro h2,
-		.form-intro h2,
-		.extra-text h2 {
-			font-size: 1.8rem;
+		:root {
+			--container-padding: 1rem;
+			--section-padding: 2rem;
 		}
 
 		.contact-item {
-			padding: 1.2rem 0.8rem;
+			padding: 1.25rem 0.75rem;
 		}
 
-		.form-content {
-			padding: 0;
+		.response-time {
+			gap: 0.75rem;
 		}
 
-		.contact-form {
-			padding: 1.5rem 1rem;
-			margin: 0;
+		.time-item {
+			padding: 0.75rem;
+		}
+	}
+
+	/* Small Mobile Phones */
+	@media (max-width: 360px) {
+		:root {
+			--container-padding: 0.75rem;
+			--section-padding: 1.5rem;
 		}
 
-		.form-group input,
-		.form-group select,
-		.form-group textarea {
-			padding: 0.8rem;
-			font-size: 0.9rem;
+		.contact-item {
+			padding: 1rem 0.5rem;
 		}
 
+		.time-item {
+			padding: 0.6rem;
+		}
+	}
+
+	/* Very Small Screens */
+	@media (max-width: 320px) {
+		:root {
+			--container-padding: 0.5rem;
+		}
+
+		.contact-item {
+			padding: 0.75rem 0.5rem;
+		}
+
+		.time-item {
+			padding: 0.5rem;
+			gap: 0.75rem;
+		}
+	}
+
+	/* High DPI Displays */
+	@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
 		.support-illustration {
-			width: 150px;
+			image-rendering: -webkit-optimize-contrast;
+			image-rendering: crisp-edges;
+		}
+	}
+
+	/* Landscape orientation for mobile */
+	@media (max-height: 500px) and (orientation: landscape) {
+		.events-hero {
+			padding: 1.5rem 0;
+		}
+
+		.extra-visual {
 			height: 150px;
 		}
 
-		.support-icon {
-			font-size: 3rem;
-		}
-
-		.floating-hearts span {
-			font-size: 1.2rem;
-		}
-
-		.btn {
-			padding: 0.9rem 1.5rem;
-			font-size: 0.95rem;
-		}
-
-		.contact-info, .contact-form-section, .contact-extra {
-			padding: 2.5rem 0;
+		.support-illustration {
+			width: 120px;
+			height: 120px;
 		}
 	}
 
-	/* Extra small screens */
-	@media (max-width: 360px) {
-		.container {
-			padding: 0 5px;
-			width: 100%;
+	/* Reduced motion preferences */
+	@media (prefers-reduced-motion: reduce) {
+		.contact-icon,
+		.support-icon,
+		.floating-hearts span {
+			animation: none;
 		}
-
-		.contact-item {
-			padding: 1rem 0.6rem;
+		
+		.events-hero::before {
+			animation: none;
 		}
+	}
 
-		.form-content {
-			padding: 0;
+	/* Print styles */
+	@media print {
+		.events-hero,
+		.contact-info,
+		.contact-extra {
+			padding: 1rem 0;
 		}
-
-		.contact-form {
-			padding: 1.2rem 0.8rem;
-			margin: 0;
+		
+		.contact-link {
+			color: #000 !important;
+			text-decoration: underline;
 		}
-
-		.contact-item h3 {
-			font-size: 1.4rem;
-		}
-
-		.contact-item p {
-			font-size: 0.9rem;
+		
+		.contact-icon,
+		.support-icon {
+			filter: none;
 		}
 	}
 </style>
