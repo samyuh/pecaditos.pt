@@ -15,7 +15,7 @@
     --chocolate-dark: var(--color-dark-red);
     --chocolate-medium: var(--color-light-red);
     --chocolate-light: #8d6e63;
-    --gold: #d4af37;
+    --gold: #EED0A4;
     --warm-white: var(--color-white);
     --text-dark: #2e1a0f;
     --text-light: #6d4c41;
@@ -89,6 +89,24 @@ a {
 a:focus {
 	outline: 2px solid var(--gold);
 	outline-offset: 2px;
+}
+
+/* Remove focus outline for navbar links when clicked with mouse, but keep for keyboard navigation */
+.nav-link:focus:not(:focus-visible) {
+	outline: none;
+}
+
+.nav-link:focus-visible {
+	outline: 2px solid var(--gold);
+	outline-offset: 2px;
+	border-radius: 4px;
+}
+
+/* Remove focus outline for buttons when clicked with mouse, but keep for keyboard navigation */
+button:focus:not(:focus-visible),
+.btn:focus:not(:focus-visible),
+.hamburger:focus:not(:focus-visible) {
+	outline: none;
 }
 
 /* Form element improvements */
@@ -183,23 +201,24 @@ select {
 }
 
 .nav-link:hover {
-	color: var(--gold);
-	transform: translateY(-2px);
+	/* Removed gold color and transform effects */
 }
 
 .nav-link::after {
+	/* Removed gold underline effect */
 	content: '';
 	position: absolute;
 	bottom: -5px;
 	left: 0;
 	width: 0;
 	height: 2px;
-	background: var(--gold);
+	background: transparent;
 	transition: width 0.3s ease;
 }
 
 .nav-link:hover::after {
-	width: 100%;
+	/* Removed underline expansion */
+	width: 0;
 }
 
 .hamburger {
