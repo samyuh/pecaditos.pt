@@ -11,7 +11,11 @@ const { title = "Pecaditos - Doces Tentações" } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Pecaditos - Doces Tentações das Terras de Basto" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+		<meta name="format-detection" content="telephone=yes" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,27 +23,66 @@ const { title = "Pecaditos - Doces Tentações" } = Astro.props;
 		<title>{title}</title>
 		<style>
 			@import "../styles/global.css";
+			
+			/* Enhanced responsive base styles */
+			html {
+				font-size: 16px;
+				-webkit-text-size-adjust: 100%;
+				-ms-text-size-adjust: 100%;
+			}
+			
 			body {
 				background-color: white;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+				text-rendering: optimizeLegibility;
 			}
 
 			.navbar {
-				background: var(--color-cream);
+				background: var(--color-dark-red);
+			}
+
+			.nav-logo {
+				text-decoration: none;
+				color: var(--color-cream);
 			}
 
 			.nav-link {
-				color: var(--color-dark-red);
-			}
-
-			.nav-link:hover {
-				color: var(--gold);
+				color: var(--color-cream);
+				font-size: 1.2rem;
+				font-weight: 500;
 			}
 
 			.hamburger span {
-				background: var(--color-dark-red);
+				background: var(--color-cream);
 			}
+			
 			.logo-text {
-				color: var(--color-dark-red);
+				color: var(--color-cream);
+				font-family: 'Dancing Script', cursive;
+				font-size: 2rem;
+				font-weight: 700;
+			}
+			
+			/* Responsive font sizing */
+			@media (max-width: 768px) {
+				html {
+					font-size: 15px;
+				}
+				
+				.logo-text {
+					font-size: 1.8rem;
+				}
+			}
+			
+			@media (max-width: 480px) {
+				html {
+					font-size: 14px;
+				}
+				
+				.logo-text {
+					font-size: 1.6rem;
+				}
 			}
 		</style>
 	</head>
@@ -77,13 +120,13 @@ const { title = "Pecaditos - Doces Tentações" } = Astro.props;
 				</div>
 				<div class="footer-section">
 					<h4>Contactos</h4>
-					<p>📧 pecaditos1808@gmail.com</p>
-					<p>📱 927 169 060 / 937 509 957</p>
+					<p>📧 <a href="mailto:pecaditos1808@gmail.com">pecaditos1808@gmail.com</a></p>
+					<p>📱 <a href="tel:+351927169060">927 169 060</a> / <a href="tel:+351937509957">937 509 957</a></p>
 					<p>📍 Terras de Basto</p>
 				</div>
 				<div class="footer-section">
 					<h4>Redes Sociais</h4>
-					<p>📸 <a href="https://instagram.com/pecaditos_18">@pecaditos_18</a></p>
+					<p>📸 <a href="https://instagram.com/pecaditos_18" target="_blank" rel="noopener noreferrer">@pecaditos_18</a></p>
 					<p>Segue-nos para ficares a par das nossas novidades!</p>
 				</div>
 			</div>
@@ -106,6 +149,23 @@ const { title = "Pecaditos - Doces Tentações" } = Astro.props;
 				link.addEventListener('click', () => {
 					navMenu?.classList.remove('active');
 				});
+			});
+
+			// Close mobile menu when clicking outside
+			document.addEventListener('click', (e) => {
+				const target = e.target;
+				if (target instanceof HTMLElement && 
+				    !hamburger?.contains(target) && 
+				    !navMenu?.contains(target)) {
+					navMenu?.classList.remove('active');
+				}
+			});
+
+			// Handle window resize
+			window.addEventListener('resize', () => {
+				if (window.innerWidth > 768) {
+					navMenu?.classList.remove('active');
+				}
 			});
 		</script>
 	</body>

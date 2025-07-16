@@ -42,6 +42,90 @@ body {
 	overflow-x: hidden;
 }
 
+/* Responsive images and media */
+img, 
+picture, 
+video, 
+canvas, 
+svg {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+/* Focus states for accessibility */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+a:focus-visible {
+	outline: 2px solid var(--gold);
+	outline-offset: 2px;
+	border-radius: 4px;
+}
+
+/* Enhanced button touch targets */
+button,
+input[type="submit"],
+input[type="button"],
+.btn {
+	min-height: 44px;
+	min-width: 44px;
+}
+
+/* Improved text scaling */
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1.2;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+}
+
+/* Better link handling */
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+a:focus {
+	outline: 2px solid var(--gold);
+	outline-offset: 2px;
+}
+
+/* Form element improvements */
+input, 
+textarea, 
+select {
+	font-family: inherit;
+	font-size: inherit;
+	border-radius: 4px;
+}
+
+/* Prevent horizontal scroll */
+.overflow-hidden {
+	overflow-x: hidden;
+}
+
+/* Container query support where available */
+@supports (container-type: inline-size) {
+	.container {
+		container-type: inline-size;
+	}
+	
+	@container (max-width: 768px) {
+		.products-grid,
+		.menu-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+	
+	@container (min-width: 769px) and (max-width: 1024px) {
+		.products-grid,
+		.menu-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+}
+
 /* Navigation */
 .navbar {
 	background: rgba(60, 36, 21, 0.95);
@@ -1292,7 +1376,117 @@ main {
 }
 
 /* Responsive design */
-@media (max-width: 768px) {
+/* Desktop Large (1200px+) */
+@media (min-width: 1200px) {
+	.container {
+		max-width: 1400px;
+	}
+	
+	.nav-container {
+		max-width: 1400px;
+	}
+	
+	.footer-content {
+		max-width: 1400px;
+	}
+	
+	.hero-content {
+		max-width: 1400px;
+	}
+}
+
+/* Tablet Large (992px - 1199px) */
+@media (max-width: 1199px) and (min-width: 992px) {
+	.hero-content {
+		gap: 3rem;
+	}
+	
+	.hero-title {
+		font-size: 3.5rem;
+	}
+	
+	.page-title {
+		font-size: 3.5rem;
+	}
+	
+	.section-title {
+		font-size: 2.5rem;
+	}
+}
+
+/* Tablet (768px - 991px) */
+@media (max-width: 991px) and (min-width: 768px) {
+	.nav-container {
+		padding: 0 30px;
+	}
+	
+	.hero-content {
+		grid-template-columns: 1fr;
+		text-align: center;
+		gap: 2.5rem;
+		padding: 0 30px;
+	}
+	
+	.hero-title {
+		font-size: 3.2rem;
+	}
+	
+	.page-title {
+		font-size: 3.2rem;
+	}
+	
+	.section-title {
+		font-size: 2.3rem;
+	}
+	
+	.products-grid,
+	.menu-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2rem;
+		padding: 0 30px;
+	}
+	
+	.about-content,
+	.story-content,
+	.mission-content,
+	.info-content,
+	.private-content {
+		grid-template-columns: 1fr;
+		text-align: center;
+		gap: 2.5rem;
+		padding: 0 30px;
+	}
+	
+	.values-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2rem;
+		padding: 0 30px;
+	}
+	
+	.events-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2rem;
+		padding: 0 30px;
+	}
+	
+	.contact-grid {
+		grid-template-columns: 1fr;
+		padding: 0 30px;
+	}
+	
+	.container {
+		padding: 0 30px;
+	}
+	
+	/* Touch-friendly button sizing for tablets */
+	.btn {
+		min-height: 48px;
+		padding: 1rem 2rem;
+	}
+}
+
+/* Mobile Large (480px - 767px) */
+@media (max-width: 767px) and (min-width: 480px) {
 	.nav-menu {
 		position: fixed;
 		left: -100%;
@@ -1304,6 +1498,147 @@ main {
 		text-align: center;
 		transition: 0.3s;
 		padding: 2rem 0;
+		gap: 1.5rem;
+		box-sizing: border-box;
+	}
+
+	.nav-menu.active {
+		left: 0;
+	}
+
+	.hamburger {
+		display: flex;
+	}
+
+	.nav-container {
+		padding: 0 20px;
+		max-width: 100%;
+	}
+
+	.footer-content {
+		grid-template-columns: 1fr;
+		text-align: center;
+		padding: 0 20px;
+	}
+
+	.page-title {
+		font-size: 2.8rem;
+		line-height: 1.2;
+	}
+
+	.hero-content {
+		grid-template-columns: 1fr;
+		text-align: center;
+		gap: 2rem;
+		padding: 0 20px;
+	}
+
+	.hero-title {
+		font-size: 2.8rem;
+		line-height: 1.2;
+	}
+
+	.hero-buttons {
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
+	.about-content,
+	.story-content,
+	.mission-content,
+	.info-content,
+	.private-content {
+		grid-template-columns: 1fr;
+		text-align: center;
+		gap: 2rem;
+		padding: 0 20px;
+	}
+
+	.products-grid,
+	.menu-grid {
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+		padding: 0 20px;
+	}
+
+	.menu-item {
+		padding: 2rem;
+		margin: 0 0;
+	}
+
+	.values-grid,
+	.events-grid,
+	.contact-grid {
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+		padding: 0 20px;
+	}
+
+	.form-row {
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+
+	.contact-form {
+		padding: 2rem;
+		margin: 0 0;
+	}
+
+	.events-notice {
+		flex-direction: column;
+		text-align: center;
+		margin: 0 0;
+		padding: 1.5rem;
+	}
+
+	.cta-buttons {
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.btn {
+		width: 100%;
+		max-width: 280px;
+		min-height: 48px;
+		padding: 1rem 1.5rem;
+		font-size: 1rem;
+	}
+
+	.container {
+		padding: 0 20px;
+		max-width: 100%;
+	}
+
+	.section-title {
+		font-size: 2.2rem;
+		margin-bottom: 2rem;
+	}
+
+	/* Improve touch targets for mobile */
+	.nav-link {
+		padding: 1rem;
+		min-height: 48px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+/* Mobile Small (max 479px) */
+@media (max-width: 479px) {
+	.nav-menu {
+		position: fixed;
+		left: -100%;
+		top: 80px;
+		flex-direction: column;
+		background: var(--chocolate-dark);
+		width: 100vw;
+		max-width: 100%;
+		text-align: center;
+		transition: 0.3s;
+		padding: 1.5rem 0;
 		gap: 1rem;
 		box-sizing: border-box;
 	}
@@ -1325,25 +1660,41 @@ main {
 		grid-template-columns: 1fr;
 		text-align: center;
 		padding: 0 15px;
+		gap: 2rem;
 	}
 
 	.page-title {
-		font-size: 3rem;
+		font-size: 2.2rem;
+		line-height: 1.2;
+		margin-bottom: 1rem;
 	}
 
 	.hero-content {
 		grid-template-columns: 1fr;
 		text-align: center;
-		gap: 2rem;
+		gap: 1.5rem;
 		padding: 0 15px;
 	}
 
 	.hero-title {
-		font-size: 3rem;
+		font-size: 2.2rem;
+		line-height: 1.2;
+	}
+
+	.hero-subtitle {
+		font-size: 1rem;
+	}
+
+	.hero-description {
+		font-size: 0.95rem;
+		line-height: 1.5;
 	}
 
 	.hero-buttons {
 		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
 	}
 
 	.about-content,
@@ -1353,59 +1704,106 @@ main {
 	.private-content {
 		grid-template-columns: 1fr;
 		text-align: center;
-		gap: 2rem;
+		gap: 1.5rem;
 		padding: 0 15px;
 	}
 
 	.products-grid,
 	.menu-grid {
 		grid-template-columns: 1fr;
+		gap: 1.5rem;
 		padding: 0 15px;
 	}
 
 	.menu-item {
-		padding: 2rem;
-		margin: 0 15px;
+		padding: 1.5rem;
+		margin: 0 0;
 	}
 
 	.values-grid,
 	.events-grid,
 	.contact-grid {
 		grid-template-columns: 1fr;
+		gap: 1.5rem;
 		padding: 0 15px;
 	}
 
 	.form-row {
 		grid-template-columns: 1fr;
+		gap: 1rem;
 	}
 
 	.contact-form {
-		padding: 2rem;
-		margin: 0 15px;
+		padding: 1.5rem;
+		margin: 0 0;
 	}
 
 	.events-notice {
 		flex-direction: column;
 		text-align: center;
-		margin: 0 15px;
+		margin: 0 0;
+		padding: 1.5rem;
 	}
 
 	.cta-buttons {
 		flex-direction: column;
 		align-items: center;
+		gap: 1rem;
 	}
 
 	.btn {
 		width: 100%;
-		max-width: 300px;
+		max-width: 100%;
+		min-height: 48px;
+		padding: 1rem;
+		font-size: 0.95rem;
 	}
 
-	/* Additional mobile constraints */
 	.container {
 		padding: 0 15px;
 		max-width: 100%;
 	}
 
+	.section-title {
+		font-size: 2rem;
+		margin-bottom: 2rem;
+		line-height: 1.2;
+	}
+
+	/* Enhanced touch targets for small mobile */
+	.nav-link {
+		padding: 1.2rem;
+		min-height: 52px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.1rem;
+	}
+
+	/* Logo adjustments for small screens */
+	.logo-text {
+		font-size: 1.6rem;
+	}
+
+	/* Form inputs touch-friendly sizing */
+	input, textarea, select {
+		min-height: 48px;
+		font-size: 16px; /* Prevents zoom on iOS */
+		padding: 1rem;
+	}
+
+	/* Card spacing adjustments */
+	.product-card,
+	.menu-card,
+	.value-card,
+	.event-card {
+		padding: 1.5rem;
+		margin-bottom: 1rem;
+	}
+}
+
+/* General responsive image and media improvements */
+@media (max-width: 991px) {
 	/* Ensure all sections don't overflow */
 	section {
 		overflow-x: hidden;
@@ -1415,45 +1813,68 @@ main {
 	h1, h2, h3, h4, h5, h6 {
 		word-wrap: break-word;
 		overflow-wrap: break-word;
+		hyphens: auto;
 	}
 
 	/* Ensure images don't overflow */
 	img {
 		max-width: 100%;
 		height: auto;
+		display: block;
+	}
+
+	/* Product icons responsive sizing */
+	.product-icon {
+		max-width: 80px;
+		height: auto;
+	}
+
+	/* Hero image responsive */
+	.hero-image img {
+		max-width: 280px;
+		height: auto;
+	}
+
+	/* Floating emoji responsive */
+	.floating-emoji {
+		max-width: 200px !important;
+		height: auto;
 	}
 }
 
-/* Additional mobile breakpoint for very small screens */
-@media (max-width: 480px) {
-	.nav-container {
-		padding: 0 10px;
+@media (max-width: 479px) {
+	.product-icon {
+		max-width: 60px;
+		height: auto;
 	}
 
-	.container {
-		padding: 0 10px;
+	.hero-image img {
+		max-width: 200px;
+		height: auto;
 	}
 
-	.page-title {
-		font-size: 2.5rem;
+	.floating-emoji {
+		max-width: 150px !important;
+		height: auto;
 	}
+}
 
-	.hero-title {
-		font-size: 2.5rem;
+/* Print styles for better responsiveness */
+@media print {
+	.navbar,
+	.hamburger,
+	.hero-buttons,
+	.cta-buttons {
+		display: none;
 	}
-
-	.footer-content {
-		padding: 0 10px;
+	
+	body {
+		font-size: 12pt;
+		line-height: 1.4;
 	}
-
-	.contact-form,
-	.menu-item {
-		margin: 0 10px;
-		padding: 1.5rem;
-	}
-
-	.btn {
-		padding: 12px 20px;
-		font-size: 0.9rem;
+	
+	.hero,
+	section {
+		page-break-inside: avoid;
 	}
 }
